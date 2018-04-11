@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+<script>
+    //原型链，当选择属性的时候，先从自身的__proto__寻找，自身找不到向上一级找，直到找到为止；
+    //原型链的最原始的prototype是Object.prototype;
+    Grand.prototype.lastName = 'Deng';
+    function Grand(){
+
+    }
+    var grand = new Grand();
+    Father.prototype = grand;
+    function Father(){
+        this.name = 'xuming';
+    }
+    var father = new Father();
+    Son.prototype = father;
+    function Son() {
+        this.hobbit = 'smoke';
+    }
+    var son = new Son();
+    //this，谁调用这个方法，this就指向谁；
+    // 可正常计算的范围：小数点前16位，后16位；
+</script>
+</body>
+</html>

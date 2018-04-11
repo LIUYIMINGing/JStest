@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    //闭包
+    //1、实现公有变量；
+    //2、可以做缓存；
+    //3、可以实现封装，属性私有化
+    //4、模块化开发，防止污染全局变量。
+    function a(){
+        function b (){
+            var bbb = 234;
+            console.log(aaa);
+        }
+        var aaa = 123;
+        return b; //此时a函数虽然结束运行了，但是b函数的作用域链却被保存了下来，此时aAO和GO都在b的作用域里，所以aaa的值仍然是123，
+    }
+    var glob = 100;
+    var demo = a(); //a结束运行了，运行结果是把b函数保存了出来，此时demo其实就是b函数，
+    demo(); //demo是b函数，那么demo执行，就意味着b函数执行，执行结果是输出aaa的值，aaa的值保存在了aAO里，此时的aAO其实是b的作用域，aaa = 123；所以执行结果就是123；
+</script>
+<script>
+    function test() {
+        var num = 100;
+        function childOne () {
+            num ++;
+            console.log(num);
+        }
+        function childTwo () {
+            num --;
+            console.log(num);
+        }
+        return [childOne,childTwo];
+    }
+    var myArr = test();// childOne和childTwo此时他俩被定义时的作用域是因为test（）执行所产生的testAO和GO,所以他俩的公共作用域就是testAO和GO，然后按照js从上往下的执行顺序，先执行childOne，num=101，childTwo执行时num就变成了101；
+    myArr[0]();
+    myArr[1]();
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类数组</title>
+</head>
+<body>
+<script>
+    //组成
+        //属性要为索引（数字）属性，必须有length属性，最好加上push
+        //优点：是对象，但是可以当数组用。
+    var obj = {
+        '0' : 'a',
+        '1' : 'b',
+        '2' : 'c',
+        'length' : 3,
+        'push' : Array.prototype.push,
+        'splice' : Array.prototype.splice //给对象加splice方法后，对象就长得像数组了。
+    };
+    //push方法原理
+    // Array.prototype.push = function (target) {
+    //     obj[obj.length] = target;
+    //     obj.length ++;
+    // }
+    var obj1 = {
+        '2' : 'a',
+        '3' : 'b',
+        'length' : 2,
+        'push' : Array.prototype.push
+    };
+    obj.push('c');
+    obj.push('d');
+</script>
+</body>
+</html>

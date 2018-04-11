@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getByClass封装方法</title>
+</head>
+<body>
+    <div class="sasda    fffff    demo   demoooo">
+        <p class="sasda222    fffff222    demo   demoooo22">
+            <span class="sasda333    fffff333    demo   demoooo333">
+
+            </span>
+        </p>
+    </div>
+    <script>
+        Document.prototype.getByClassName = function (className){
+            var allDomArr = Array.prototype.slice.call(document.getElementsByTagName('*'), 0);//将获得的类数组转换为数组
+            var filterArr = [];
+            function dealClass(dom) {
+                // 替换原class中的诸多没用的空格。
+                var reg = /\s+/g;
+                var arrClassName = dom.className.replace(reg, ' ').trim(); //trim方法是去掉字符串首尾的空格。
+                return arrClassName;
+                // 返回
+            }
+            allDomArr.forEach(function (ele, index) {
+                var itemClassArr = dealClass(ele).split(' ');
+                for(var i = 0; i < itemClassArr.length; i++) {
+                    if(itemClassArr[i] == className) {
+                        filterArr.push(ele);
+                        break;
+                    }
+                }
+            })
+            return filterArr;
+        };
+        var oClass = document.getByClassName('demo');
+        console.log(oClass);
+    </script>
+</body>
+</html>

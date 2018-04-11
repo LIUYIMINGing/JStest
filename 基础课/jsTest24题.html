@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题</title>
+</head>
+<body>
+<script>
+    //x = (1, 2)  --> x = 2;
+    var f = (
+        function f() {
+            return 1;
+        },
+            function g() {
+            return 2;
+            }
+    )();
+    console.log(typeof f);
+    //
+    //
+    var x = 1;
+    if(function z() {}) { // function 变成表达式，function会自动忽略其引用，function可以被立即执行，但是执行完成后就再也不能被其他找到，
+                            // 也就是undefined
+        x += typeof z;  //z现在是找不到的
+    }
+    console.log(x);
+    //
+    //
+    console.log(parseInt('1a') == 1); //--> true
+    console.log(undefined == null); //-->true
+    console.log({} == {});// 两个对象，对应的两个地址，虽然都是空的，但是这俩就是两个。
+    //
+    //
+    var bar = {a : '002'};
+    function print() {
+        bar.a = 'a';
+        Object.prototype.b = 'b';//原型链顶端
+        return function inner() {
+            console.log(bar.a);
+            console.log(bar.b);
+        }
+    }
+    print()();//先返回函数，再执行返回的函数。
+
+</script>
+</body>
+</html>

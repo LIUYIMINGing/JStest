@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+<body>
+<script>
+    //this
+    //1、函数预编译过程 this --> window；，跟this在哪里没关系
+    //2、全局作用域里this --> window;
+    //3、call和apply可以改变函数运行时this的指向；
+    //4、obj.func(); func()里的this指向obj，谁调用指向谁；
+    //
+    //
+    var name = '222';
+    var a = {
+        name : '111',
+        say : function () {
+            console.log(this.name);
+        }
+    };
+    var fun = a.say; // --> function(){console.log(this.name)}这个函数；
+    fun();// 111错误，a.say就是一个函数，并未执行，fun执行，fun在全局里面 --> 222;
+    a.say();// 111
+    var b = {
+        name : '333',
+        say : function (fun) {
+            fun();
+        }
+    };
+    b.say(a.say);// 333错误，a.say = function () {console.log(this.name) },此时传到了b.say里面。独立执行，并未有其他人调用，
+                // 所以走的是预编译环节，预编译环节，this指向的是window
+    b.say = a.say;
+    b.say(); //333
+    //
+    //
+    var foo = 123;
+    function print() {
+        //this = Object.creat(print.prototype);
+        this.foo = 234;//这里再调用this.poo,就相当于在print（）函数里面增加了一个foo变量属性，
+        console.log(foo);//但是这里调用foo并非是调用的this的foo，所以还是从GO里面找，就找到了foo = 123；大哭ing'
+    }
+    // print(); //234;
+    new print();//当new一个print函数执行的时候，会在print函数里系统默认一个this属性;
+
+</script>
+</body>
+</html>

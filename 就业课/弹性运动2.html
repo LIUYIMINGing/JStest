@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100px;
+            height: 100px;
+            background: orange;
+            border-radius: 50%;
+        }
+        span{
+            position: absolute;
+            left: 300px;
+            top: 0px;
+            width: 1px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <title>弹性运动2</title>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        oDiv.onclick = function () {
+            startMove(this);
+        }
+            function startMove(obj) {
+                clearInterval(obj.timer);
+                var timer,
+                    iSpeed = 20;
+                    // a > 0时，加速运动，a < 0时，减速运动。
+                var a = 3; 
+                timer = setInterval(function () {
+                    if(obj.offsetLeft < 300) {
+                        iSpeed = iSpeed + a;
+                    }else{
+                        iSpeed = iSpeed - a;
+                    };
+                    obj.style.left = obj.offsetLeft + iSpeed + 'px';
+                }, 100);
+            }
+
+    </script>
+</body>
+
+</html>

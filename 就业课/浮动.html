@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .wrapper{
+            border: 1px solid red;
+        }
+        .wrapper div{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: #f00;
+        }
+        /* .wrapper p{
+            clear:both;
+            border: 0px solid red;
+        } */
+        .wrapper::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+    <title>浮动</title>
+</head>
+<body>
+    <!--
+        1.浮动元素产生了浮动流
+        所有产生了浮动流的元素，块级元素看不到他们
+        产生了bfc的元素和文本类属性（inline）的元素以及文本都能看到浮动元素
+    -->
+    <div class="wrapper">
+        <div class="demo1">1</div>
+        <div class="demo2">2</div>
+        <div class="demo3">3</div>
+        <div class="demo4">4</div>
+        <!-- <p></p>只为清楚浮动，使得父级包住子级 -->
+        <!-- 利用伪元素清除浮动，唯一合适的解决方法 -->
+    </div>
+</body>
+</html>

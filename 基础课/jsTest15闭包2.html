@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包2</title>
+</head>
+<body>
+<script>
+    function test() {
+        var arr = [];
+        for(var i = 0; i < 10; i ++){
+            //arr【i】这个的结果会自动添加进arr【】这个空的数组里，原因应该是底层就这么写的。
+            arr[i] = function () {  //当i=0，1，2，3、、、9的时候，此时后面的函数语句并未执行，
+                                    // 因为他没有执行符号；
+                                    //所以此时arr【】这个数组里
+                                    //都是一堆function () {document.write(i + ","}这个函数。
+                document.write(i + ",");
+            }
+        }
+        return arr;//返回arr的同时还返回了arr此时的作用域testAO和GO，
+                   // 此时testAO里的i的值由于for循环值变成了10;
+                   //此时arr其实就是函数test()；
+    }
+    var myArr = test();
+    for(var j = 0; j < 10; j ++){
+        myArr[j]();//此时arr[i] = function () {document.write(i + ","}函数执行，
+                   // i的值都是10，所以数组里的值都是10；
+    }
+</script>
+</body>
+</html>

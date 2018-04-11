@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象-构造函数内部原理</title>
+</head>
+<body>
+<script>
+    //1、在函数体最前面隐式的加上this = {}；
+    //2、执行this.xxx = xxx;
+    //3、隐式的返回this；
+    function Student(name, age, sex) {
+        //var this = {
+        // name = '';
+        //age = '';
+        // };隐式的
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.grade = 2008;
+        return 123;//此时不影响最后的结果，因为底层里面限制了构造函数只能返回对象，如果返回的是原始值则忽略；
+        //return this;
+        //return {};此时就会影响整体返回的结果，最后下面的student执行的时候就会得到空字符串
+    }
+    var student = new Student('xiaoli', 18, 'male');
+    console.log(student);
+    //另外一种情况
+    function Student2(name, age, sex) {
+        //var this = {
+        // name = '';
+        //age = '';
+        // };隐式的
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.grade = 2008;
+        //return 123;//此时不影响最后的结果，因为底层里面限制了构造函数只能返回对象，如果返回的是原始值则忽略；
+        //return this;
+        return {};//此时就会影响整体返回的结果，最后下面的student执行的时候就会得到空字符串
+    }
+    var student2 = new Student2('xiaoli', 18, 'male');
+    console.log(student2)
+</script>
+</body>
+</html>

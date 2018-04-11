@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typeof操作符</title>
+</head>
+<body>
+<script>
+    //number string boolean object function undefined:这些经过typeof（）都是返回字符串
+    var num = 123,
+        str = "123",
+        nuL = null;
+        // und = undefined;
+    console.log(typeof(num));
+    console.log(typeof(str));
+    console.log(typeof(nuL));
+    console.log(typeof(typeof(undefined)) + " " + typeof(undefined));
+</script>
+</body>
+</html>

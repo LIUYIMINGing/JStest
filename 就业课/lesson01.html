@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>lesson01</title>
+    <style>
+        div {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button>停止</button>
+    <button>重启</button>
+    <script>
+        // var div = document.getElementsByTagName('div')[0];
+        var btn = document.getElementsByTagName('button')[0];
+        var btn1 = document.getElementsByTagName('button')[1];
+        var div = document.createElement('div');
+        document.body.appendChild(div);
+        div.innerHTML = '134';
+        div.style.left = '100px';
+        div.style.width = '100px';
+        div.style.height = '100px';
+        div.style.backgroundColor = '#f0f0f0';
+        var timer = setInterval(function () {
+            div.style.left = parseInt(div.style.left) + 100 + 'px';
+        }, 1000);
+        btn.onclick = function() {
+            clearInterval(timer);
+        }
+        // var stop = function () {
+        //     if(Math(div.style.left) = 500){
+        //         clearInterval(timer);
+        //     }
+        // };
+        btn1.onclick = function() {
+            setInterval(function () {
+            div.style.left = parseInt(div.style.left) + 100 + 'px';
+        }, 1000);
+        }
+    </script>
+</body>
+
+</html>

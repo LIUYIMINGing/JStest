@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数记忆-阶乘</title>
+</head>
+<body>
+    <script>
+        // function factorial(n) {
+        //     if(n == 0 || n == 1) {
+        //         return 1;
+        //     }
+        //     return n * factorial(n-1);
+        // }
+        // console.log(factorial(4));
+        //函数记忆
+        // var count = 0;
+        // var cache = [];
+        // function factorial(n) {
+        //     count++;
+        //     if(cache[n]) {
+        //         console.log(cache[n] + 'a');
+        //         return cache[n];
+        //     }else {
+        //         if(n == 0 || n == 1) {
+        //             cache[0] = 1;
+        //             cache[1] = 1;
+        //             return 1;
+        //         }else {
+        //             cache[n] = n * factorial(n-1);
+        //             return cache[n];
+        //         }
+        //     }
+        // }
+        // for(var i = 0; i <= 5; i++) {
+        //     console.log(factorial(i));
+        // }
+        //封装
+        function factorial(n) {
+            if(n == 0 || n == 1) {
+                return 1;
+            }
+            return n * factorial(n-1);
+        }
+        function memorize(fn) {
+            var cache = {};//变量私有化；
+            return function () {
+               var key = arguments.length + Array.prototype.join.call(arguments);
+               console.log(key);
+               if(cache[key]) {
+                   return cache[key];
+               }else {
+                   cache[key] = fn.apply(this, arguments);
+                   return cache[key];
+               }
+            }
+        }
+        var newF = memorize(factorial);
+        console.log(newF(4));
+        //数据越多，运算越快。
+    </script>
+</body>
+</html>

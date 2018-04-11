@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            background-color: red;
+            margin-right:100px;
+        }
+        .box2{
+            background-color: green;
+            margin-right:100px;
+        }
+        .demo1{
+            background-color: red;
+            margin-bottom: 100px;
+        }
+        .demo2{
+            background-color: green;
+            margin-top: 100px;
+        }
+        .wrapper{
+            overflow: hidden;
+        }
+    </style>
+    <title>margin合并</title>
+</head>
+<body>
+    <!-- BFC触发方式 
+        position:absolute;
+        display:inline-block;
+        float:left/right;
+        overflow:hidden;
+        四种触发条件任选其一就行。
+    -->
+    <!-- 必须加一层html元素 -->
+    <!-- 但是不可取，不能为了解决问题而添加结构 -->
+    <span class="box1">123</span>
+    <span class="box2">234</span>
+    <div class="demo1"></div>
+    <div class="wrapper">
+        <div class="demo2"></div>
+    </div>
+</body>
+</html>

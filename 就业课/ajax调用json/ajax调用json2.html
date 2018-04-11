@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax调用json2</title>
+</head>
+
+<body>
+    <script>
+        function ajaxFunc(method, url, ) {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject('Microsoft.XMLHttp');
+            }
+            if (method == 'GET') {
+                xhr.open('GET', url, flag);
+                xhr.send()
+            }else if(method == 'POST'){
+                
+            }
+
+        }
+    </script>
+</body>
+
+</html>

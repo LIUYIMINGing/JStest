@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            top: 0px;
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+        }
+        span{
+            position: absolute;;
+            width: 5px;
+            height: 5px;
+            background: #000;
+        }
+    </style>
+    <title>弹性运动-模拟重力场+拖拽</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        var lastX = oDiv.offsetLeft;  //记录上一次oDiv的位置
+        var lastY = oDiv.offsetTop;
+        oDiv.onmousedown = function(e) {
+            clearInterval(this.timer);
+            var event = e || window.event;
+            var disX = e.clientX - this.offsetLeft;
+            var disY = e.clientY - this.offsetTop;
+            var that = this;
+            var iSpeedX = 0;
+            var iSpeedY = 0;
+            document.onmousemove = function(e) {
+                var newLeft = e.clientX - disX; //实时计算newLeft的值。每移动一个间隔就记录一次，但是不知道计算机怎么计算每次记录的时间
+                var newTop = e.clientY - disY;  
+                // console.log(newTop);
+                iSpeedX = newLeft - lastX;//次数计算速度的时候因该是把计算机默认记录的时间当成1，直接计算两次的距离就当成了速度。
+                // console.log('ISPEEDx' + ' ' + iSpeedX);
+                iSpeedY = newTop - lastY;
+                lastX = newLeft;//此时再重新将最后的left值当成最新一次的值，保证记录下次再移动时的初试位置。
+                lastY = newTop;
+                // console.log(that);
+                // console.log(e);
+                that.style.left = newLeft + 'px';
+                that.style.top = newTop + 'px';
+            }
+            document.onmouseup = function() {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                startMove(that, iSpeedX, iSpeedY)
+                // console.log(that);
+            }
+        }
+
+        function startMove(obj, iSpeedX, iSpeedY) {
+            clearInterval(obj.timer);
+            // var iSpeedX = 6;
+            // var iSpeedY = 8;
+            var g = 6;//给定一个重力加速度；
+            obj.timer = setInterval(function() {
+                iSpeedY += g; //每次循环定时器的时候都要在原来的速度上加上g（加速度）。
+                 var newLeft = obj.offsetLeft + iSpeedX; //这里的iSpeedX虽然定义的是速度，但是随着循环时间的增加变成了距离。v = v0 + at1 （速度公式），v1 = at1 + at2  .....
+                 var newTop = obj.offsetTop + iSpeedY;
+                 if (newTop >= document.documentElement.clientHeight - obj.offsetHeight) {//控制obj的位置，当到达边界的时候改变速度，让速度取相反的方向。
+                     iSpeedY *= -1;
+                     iSpeedY *= 0.8;//增加改变系数，让速度降下来。
+                     iSpeedX *= 0.8;
+                     newTop = document.documentElement.clientHeight - obj.offsetHeight;
+                 } else if(newTop <= 0){
+                    iSpeedY *= -1;
+                    iSpeedY *= 0.8;
+                    iSpeedX *= 0.8;
+                    newTop = 0;
+                 }
+                 if (newLeft >= document.documentElement.clientWidth - obj.offsetWidth) {
+                     iSpeedX *= -1;
+                     iSpeedY *= 0.8;
+                     iSpeedX *= 0.8;
+                     newLeft = document.documentElement.clientWidth - obj.offsetWidth;
+                 } else if(newLeft <= 0){
+                    iSpeedX *= -1;
+                    iSpeedY *= 0.8;
+                    iSpeedX *= 0.8;
+                    newLeft = 0;
+                 }
+                 if (Math.abs(iSpeedX) < 1) {
+                     iSpeedX = 0; //当速度极小的时候，让速度归零，使obj停止。
+                 }
+                 if(Math.abs(iSpeedY) < 1) {
+                     iSpeedY = 0;
+                 }
+                 if(iSpeedX == 0 && iSpeedY == 0 && newTop == document.documentElement.clientHeight - obj.clientHeight) {
+                     clearInterval(obj.timer);
+                     console.log('over');
+                 }
+                 obj.style.left = newLeft + 'px';
+                 obj.style.top = newTop + 'px';
+            },100)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包3</title>
+</head>
+<body>
+<script>
+    function test() {
+        var arr = [];
+        for(var i = 0; i < 10; i ++){
+            (function (x) {
+                arr[x] = function () {//此时的函数表达式预定义的AO里的j的值是每一次循环时的j的值
+                                    // -->（1，2，3...9）
+                    document.write(x + ",");
+                }//这句函数表达式还未执行；
+            }(i));//立即执行函数此时已经执行；
+        }
+        return arr;
+    }
+    var myArr = test();
+    for(var j = 0; j < 10; j ++){
+        myArr[j]();//此处执行的时候刚才的函数就是执行那个函数对应的AO里的j的值；
+    }
+    //总结：
+    //其实就是执行顺序和执行时所用的值的来源的问题。
+</script>
+</body>
+</html>

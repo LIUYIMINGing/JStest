@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        span {
+            width: 2px;
+            height: 100px;
+            background-color: midnightblue;
+            position: absolute;
+            left: 300px;
+            top: 0;
+        }
+
+        button {
+            width: 100px;
+            height: 60px;
+            background-color: mintcream;
+            color: #303030;
+            margin-top: 102px;
+        }
+
+    </style>
+    <title>封装匀速运动</title>
+</head>
+
+<body>
+    <div></div>
+    <button id='oBtn'>Start</button>
+    <button id='oBtnStop'>Stop</button>
+    <span></span>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        var oBtn = document.getElementById('oBtn');
+        var oBtnStop = document.getElementById('oBtnStop');
+        var timer = null;
+        oBtn.onclick = function () { // 开始移动事件；
+            startMove(oDiv);
+        };
+
+        function startMove(obj) { //移动函数；
+            clearInterval(timer);
+            var iSpeed;
+            if (obj.offsetLeft > 300) {
+                iSpeed = -8;
+            } else {
+                iSpeed = 8;
+            }
+            timer = setInterval(function () {
+                if ( Math.abs(300 - obj.offsetLeft) < Math.abs(iSpeed) ) { 
+                    clearInterval(timer); // 通过移动距离停止移动函数；
+                    obj.style.left = '300px';
+                } else {
+                    obj.style.left = obj.offsetLeft + iSpeed + 'px';
+                }
+            }, 100)
+        };
+        oBtnStop.onclick = function () { // 停止事件 --- 点击；
+            stopMove(oDiv);
+        };
+
+        function stopMove(obj) { //  停止函数
+            clearInterval(timer);
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arguments</title>
+</head>
+<body>
+<script>
+    //callee
+    function test() {
+        console.log(arguments.callee);//打印函数本身。
+    }
+    test();
+    //caller
+    function test1() {
+        demo();
+    }
+    function demo() {
+        console.log(demo.caller);  //打印调用demo的函数，此时是test1;
+    }
+    test1();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包题</title>
+</head>
+<body>
+<script>
+    function Person(name, age, sex) {
+        var a = 0;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        function sss() {
+            a ++;
+            document.write(a);
+        }
+        this.say = sss;
+    }
+    var oPerson = new Person();
+    oPerson.say();
+    oPerson.say();
+    var oPerson1 = new Person();
+    oPerson1.say();
+    //new以后，Person（）就独立了，独立给前面声明的变量，相较于另外一个new Person（），他俩没关系，
+    // Person（）的AO同时给俩new，但是俩new的AO不能反悔到Person的AO
+</script>
+</body>
+</html>

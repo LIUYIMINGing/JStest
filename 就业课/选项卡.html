@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-3.3.1.js"></script>
+    <style>
+        * {
+            /* margin: 0;
+            padding: 0; */
+            list-style: none;
+        }
+
+        ul{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+        }
+        ul li{
+            width: 100px;
+            height: 100px;
+            background: gray;
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+
+    </style>
+    <title>选项卡</title>
+</head>
+
+<body>
+    <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+    <ul>
+        <li class="active">11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <script>
+        // $('button').click(function(){
+        //     // console.log($(this).index());
+        //     $('.active').removeClass('active');
+        //     $('li').eq($(this).index()).addClass('active');
+        // })
+        var oBtnArray = document.getElementsByTagName('button');
+        var oLiArray = document.getElementsByTagName('li');
+        for(var i = 0; i < oBtnArray.length; i++){
+               (function(n){
+                oBtnArray[n].onclick = function(e) {
+                    console.log(this);
+                    for(var j = 0; j < oBtnArray.length; j++){
+                        oLiArray[j].className = '';
+                    }
+                    oLiArray[n].className = 'active';
+                }
+               }(i))
+               
+        }
+        
+    </script>
+</body>
+
+</html>

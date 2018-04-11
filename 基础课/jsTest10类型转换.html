@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型转换</title>
+</head>
+<body>
+<script>
+    //显示转换
+    var num = Number("123");//转换成数字
+    console.log(typeof(num) + " " + num);
+    var demo = "10";
+    var psi = parseInt('');//取整数（没有四舍五入）；从数字位开始读，一直读到非数字位
+    var psi = parseInt(demo,'基底（进制）');//以目标进制当基底转换成10进制的数；2-36进制
+    var pft = parseFloat('');//转换为浮点类型，从数字位开始看，看到除了点以外的非数字位截止；
+    var str = String('');//把任何东西都转换成字符串；
+    var bl = Boolean('');//
+    var tstr = demo.toString();//与string用法不一样，不能用undefined和null
+    var tstr1 = demo.toString(16);//以10进制为基底，转换成16进制；
+    //把一堆2进制的数转换成16进制，并输出
+    var test = 101011010;
+    var test10 = parseInt(test,2);
+    var test16 = test10.toString(16);
+    console.log(test10);
+    console.log(test16);
+    //隐式转换
+    console.log(isNaN(NaN));  //true
+        //isNaN()括号里的数据会先进行Numeber（）转化，转化后跟NaN比对，比对的结果再用isNaN（）比较；
+</script>
+</body>
+</html>

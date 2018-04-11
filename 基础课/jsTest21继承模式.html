@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承模式</title>
+</head>
+<body>
+<script>
+    //共享原型
+    //圣杯模式
+    function inherit(Target, Origin) {
+        function F() {}; //新建一个中间构造函数，让目标（target）函数变更原型的时候不会改变原始（origin）函数的原型；
+        F.prototype = Origin.prototype;
+        Target.prototype = new F();
+        Target.prototype.constructor = Target;
+        Target.prototype.uber = Origin.prototype;
+    }
+    Father.prototype.lastName = 'Deng';
+    function Father() {
+
+    }
+    function Son() {
+        
+    }
+    // Son.prototype = Father.prototype //两者共享father原型
+    // var son = new Son();
+    // var father = new Father();
+
+    // inherit(Target, Origin);
+    inherit(Son, Father);//先继承
+    var son = new Son();//后调用
+    var father = new Father();
+</script>
+</body>
+</html>

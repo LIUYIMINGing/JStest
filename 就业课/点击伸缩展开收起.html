@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrapper{
+            width: 400px;
+            height: 100px;
+            background-color: mediumslateblue;
+            position: absolute;
+            left: -400px;
+            top: 0;
+        }
+        .wrapper .show{
+            width: 40px;
+            height: 100px;
+            background-color: mediumorchid;
+            position: absolute;
+            right: -40px;
+            top: 0;
+        }
+    </style>
+    <title>点击伸缩展开收起</title>
+</head>
+<body>
+    <div class="wrapper" id="wrapper">
+        <div class="show" id="show"></div>
+    </div>
+    <script>
+        var wrapper = document.getElementsByTagName('div')[0];
+        var timer = null;
+        wrapper.onmouseenter = function () { // 开始移动事件；
+            startMove(this, 0);
+        };
+        wrapper.onmouseleave = function () { // 开始移动事件；
+            startMove(this, -400);
+        };
+        function startMove(obj, target) { //移动函数；
+            clearInterval(timer);
+            var iSpeed;
+            timer = setInterval(function () {
+                iSpeed = (target - obj.offsetLeft) / 7;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed); //三目运算
+                if (obj.offsetLeft === target) {
+                    clearInterval(timer);
+                } else {
+                    obj.style.left = obj.offsetLeft + iSpeed +'px';
+                }
+            }, 100)
+        };
+    </script>
+</body>
+</html>

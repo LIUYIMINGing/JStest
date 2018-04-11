@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>cst handsome</div>
+    <script>
+        // var list = {
+        //     init : function () {
+        //         // console.log(list);
+        //         // console.log(this);
+        //         this.message = 'hello';
+        //         this.bindEvent();
+        //     },
+        //     bindEvent : function () {
+        //         var oDiv = document.getElementsByTagName('div')[0];
+        //         oDiv.onclick = this.show.bind(this);
+        //     },
+        //     show : function (e) {
+        //         console.log(e.target, this);
+        //     }
+        // }
+        // list.init();
+
+        Function.prototype.newBind = function (target) {
+            target = target || window;
+            //this -> show
+            var self = this;
+            return function () {
+                return self.apply(target)
+            }
+        }
+        var newShow = show.newBind();
+        newShow();
+
+        var value = 0;
+        var obj = {
+            value : 1
+        }
+        function show (name, age) {
+            console.log(this.value);
+            console.log(name, age);
+        }
+        // show('cst', 18)
+        //
+        // bind(x1, x2, x3....)
+        //1.bind里的第一个参数，改变的是this的指向，null的时候指向的是window；指定obj的时候是obj
+        //2、new newShow 的时候undefined；
+        // var newShow = show.bind(obj, 'cst', 18); //改变了this指向
+        // newShow(23, 18);
+    </script>
+</body>
+</html>

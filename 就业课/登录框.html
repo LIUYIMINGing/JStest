@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .content {
+            display: none;
+        }
+
+    </style>
+    <title>登录框</title>
+</head>
+
+<body>
+    <a href="#" class="log">登录</a>
+    <!-- <div class="content">显示
+        <span class="close">x</span>
+    </div> -->
+    <script src="./jquery-3.3.1.js"></script>
+    <script>
+        var flag = true;
+        $('.log').click(function () {
+            if (flag) {
+                flag = false;//确保str只添加一次。
+                var str =
+                    '<div class="content">显示\
+                            <span class="close">x</span>\
+                        </div>';
+                $('body').append($(str));
+            }
+            $('.content').css('display', 'block');
+            $('.close').one('click', function () {//这里只是让str隐藏了，但是并未清除出dom结构。
+                $('.content').css('display', 'none');
+            })
+        })
+    </script>
+</body>
+
+</html>

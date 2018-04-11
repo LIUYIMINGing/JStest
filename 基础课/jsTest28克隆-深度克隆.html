@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>克隆-深度克隆</title>
+</head>
+<body>
+<script>
+    //克隆-深度克隆
+    //遍历对象  for(var prop in obj)
+    //1、判断是不是原始值  typeof() 是不是object；
+    //2、判断是数组还是对象  instanceof toString constructor
+    //3、建立相应的数组和对象
+    //4、循环以上步骤  递归
+    var obj = {
+        name : 'zhangsan',
+        age : 18,
+        card : ['visa', 'master'],
+        wife : {
+            name : 'lisisi',
+            son : {
+                name : 'zhangyiyi'
+            }
+        }
+    };
+    var obj1 = {
+
+    };
+    function deepClone(origin, target) {
+        var target = target || {},
+            toStr = Object.prototype.toString,
+            arrStr = '[Object Array]';
+        for (var prop in origin) {
+            if(origin.hasOwnProperty(prop)) {//判断是不是非原型上的属性；
+                if(origin[prop] !== 'null' && typeof(origin[prop]) == 'object') {//判断是不是引用值；
+                    if(toStr.call(origin[prop]) == arrStr) { //判断是数组还是对象
+                        target[prop] = [];//在目标上建立空数组，
+                    }else {
+                        target[prop] = {};//在目标上建立空对象，
+                    }
+                    deepClone(origin[prop], target[prop]);//递归  再一次对新建立的空数组和空对象进行深度克隆
+                }else {
+                    target[prop] = origin[prop];
+                }
+            }
+        }
+        return target;
+
+    }
+    deepClone(obj, obj1);
+    obj.card.push('abc');
+    console.log(obj.card);
+    console.log(obj1.card);
+</script>
+</body>
+</html>

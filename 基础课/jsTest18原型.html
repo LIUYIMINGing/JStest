@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型</title>
+</head>
+<body>
+<script>
+    Person.prototype.name = 'abc';
+    function Person() {
+        // var this = {
+        //
+        //     __proto__ : Person.prototype; 隐式定义
+        // }
+
+    }
+    var person = new Person();
+    Person.prototype.name = 'cherry';//此时name属性就改成了cherry，
+                                    // 相当于Person.prototype的name属性改了，
+    Person.prototype = {
+        name : 'cherry'
+    }//这种写法跟上面的"."写法不一样，此时的差别很大，意义完全不同
+    // 这种写法相当于把后面大括号里的东西包括大括号赋给了Person.prototype
+    // 但是__proto__的属性没改
+    //类似这种结构
+    // var obj = {name : 'a'};
+    // var obj1 = obj;
+    // obj = {name : 'b'};
+
+</script>
+</body>
+</html>

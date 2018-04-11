@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax调用json</title>
+</head>
+
+<body>
+    <script>
+        function showJson() {
+            var xhr;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                xhr = new window.ActiveXObject();
+            } else {
+                alert("请升级至最新版本的浏览器");
+            }
+            if (xhr != null) {
+                xhr.open("GET", "json.json", true);
+                xhr.send(null);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var obj = JSON.parse(xhr.responseText);
+                        var str = "";
+                        for (var name in obj) {
+                            str = obj[name].two + obj[name].key
+                            // alert(obj[name].two);
+                            alert(str);
+                        }
+                    }
+                };
+
+            }
+        }
+        window.onload = function () {
+            showJson();
+        };
+    </script>
+</body>
+
+</html>

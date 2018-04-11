@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom练习</title>
+</head>
+<body>
+    <script>
+        var oDiv = document.createElement('div');
+        var oP = document.createElement('p');
+        document.body.appendChild(oDiv);
+        oDiv.className = 'example';
+        oDiv.appendChild(oP);
+        oP.innerHTML = '成哥最帅！';
+    </script>
+</body>
+</html>

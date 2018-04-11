@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+    <script>
+        //hash 方法
+        // 
+        var arr = [1,1,1,1,2,2,2,34,2,2,23,3,3,4,4]
+        Array.prototype.unique = function () {
+            var temp = {};//新建一个空对象，用来接收name值
+            var arr = [];//新建一个空数组，用来接收重复出现的值。
+            var len = this.length;//this，谁引用，指向谁
+            for(var i = 0; i < len; i ++) {
+                if(!temp[this[i]]) { //当原始数组里的对象相同的时候，这里就不再重复执行，因为此时的temp【this【i】】不是空，取反之后就变成了undefined，所以急不执行了。继续去寻找下一个没有出现的对象
+                    temp[this[i]] = "abc";//给相同的对象赋予一个值
+                    arr.push(this[i]);
+                }
+            }
+            return arr;
+        }
+        // console.log(arr.unique());
+    </script>
+</body>
+</html>

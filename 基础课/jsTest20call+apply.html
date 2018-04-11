@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call+apply</title>
+</head>
+<body>
+<script>
+    // function test() {
+    //
+    // }
+    // test(); // -->test.call();   前面等于后面，后面是前面的隐式执行；
+
+    // function Person(name, age) {
+    //     // this = obj;
+    //     this.name = name;
+    //     this.age = age
+    // }
+    // var person = new Person('deng', 100);
+    // var obj = {
+    //
+    // }
+    // Person.call(obj, 'cheng', 300);
+    // call改变了this的指向，call括号里第一位表示this此时所代表的对象，从第二位开始就是实参；
+    // 利用别人的方法执行自己想要的结果;
+</script>
+<script>
+    //实例
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    function Student(name, age, sex, tel, grade){
+        // var this ={};
+        Person.call(this, name, age, sex);  //this此时指向的是Person里的{this.name = name;...this.sex = sex;}
+        this.tel = tel;
+        this.grade = grade;
+    }
+    var student = new Student('sunny', 18, 139);
+</script>
+<script>
+    // apply
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    function Student(name, age, sex, tel, grade){
+        // var this ={};
+        Person.apply(this,[name, age, sex]);  //apply必须传数组，数组里面填实参；
+        this.tel = tel;
+        this.grade = grade;
+    }
+    var student = new Student('sunny', 18, 139);
+</script>
+<!--总结-->
+<!--call和apply只有一个功能就是改变this指向，区别，传参列表不同-->
+</body>
+</html>

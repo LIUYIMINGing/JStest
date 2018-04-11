@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        #box1 {
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        #box2 {
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+    </style>
+    <title>数学变换-实战拖拽</title>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+        var oBox1 = document.getElementById('box1');
+        var oBox2 = document.getElementById('box2');
+        var body = document.getElementsByTagName('body')[0];
+        var oBox2L = oBox2.offsetLeft;
+        var oBox2T = oBox2.offsetTop;
+        var w = oBox1.offsetWidth;
+        var h = oBox2.offsetHeight;
+        var eX, eY, box1L, box1T, box1W, box1H, disX, disY;
+        var drag = false;
+
+        function bindEvent() {
+            oBox1.onmousedown = function (e) {
+                drag = true;
+                var event = e || window.event;
+                eX = event.clientX;
+                eY = event.clientY;
+                box1L = oBox1.offsetLeft;
+                box1T = oBox1.offsetTop;
+                disX = eX - box1L;
+                disY = eY - box1T;
+            }
+            body.onmousemove = function (e) {
+                var event = e || window.event;
+                if (drag) {
+                    oBox1.style.left = event.clientX - disX + "px";
+                    oBox1.style.top = event.clientY - disY + "px";
+
+                    var l = oBox1.offsetLeft;
+                    var t = oBox1.offsetTop;
+                    var coverHeight = 0;
+                    var coverWidth = 0;
+                    if((l + w >= oBox2L) && (l <= oBox2L)) {
+                        coverWidth = l + w - oBox2L;
+                    }else if ((oBox2L + w > l)&&(oBox2L + w < l + w)) {
+                        coverWidth = oBox2L + w - l;
+                    };
+                    if(t + h >= oBox2T && oBox2T > t) {
+                        coverHeight = t + h - oBox2T
+                    }else if(oBox2T + h >= t && t + h >= oBox2T + h) {
+                        coverHeight = oBox2T + h - t
+                    }
+                    console.log(coverHeight * coverWidth)
+                }
+            }
+            oBox1.onmouseup = function () {
+                drag = false;
+            }
+        }
+        bindEvent();
+    </script>
+</body>
+
+</html>

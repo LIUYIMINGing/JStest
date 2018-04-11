@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装类</title>
+</head>
+<body>
+<script>
+    //包装类
+    var num = 4;
+    num.len = 3;
+    //这里系统会新建一个构造函数：-->new Number(4).len = 3;
+    // 但是系统自动创建完成后会再执行一句delete，销毁这句话；
+
+    console.log(num.len);//开始执行这句代码的时候系统又会重新建立一个新的构造函数
+                        // new Number(4).len，但是没有定义值
+                        // 所以，返回undefined；
+    //这个过程就叫'包装类'；
+</script>
+</body>
+</html>

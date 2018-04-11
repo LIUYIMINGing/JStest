@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包5私有化变量</title>
+</head>
+<body>
+<script>
+    function Deng(name, wife) {
+        var prepareWife = 'xiaozhang';
+        this.name = name;
+        this.wife = wife;
+        this.divorce = function () {
+            this.wife = prepareWife;
+        }
+        this.changePrepareWife = function () {
+            prepareWife = target;
+        }
+        this.sayPrepareWife = function () {
+            console.log(prepareWife);
+        }
+    }
+    var deng = new Deng('deng', 'xiaoliu');
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装getByClassName方法</title>
+</head>
+
+<body>
+    <div class="  demo    item   sss">
+        <p class="demo  ssaaa  ppp">
+            <span class="sssccc               demo   span2ccc"></span>
+        </p>
+        <li class="li"></li>
+    </div>
+    <script>
+        
+        // console.log('a');
+        // debugger;
+        Document.prototype.getByClassName = function(className) {
+            var allDomArr = Array.prototype.slice.call(document.getElementsByTagName('*'), 0); //将获得的类数组转换为数组
+            function dealClass(dom) {
+                // "  demo    item   sss"
+                // 正则方法去掉多余空格
+                var reg = /\s+/g;  //清楚字符串中出现的多个空格；
+                var arrClassName = dom.className.replace(reg, ' ').trim();
+                return arrClassName;
+            };
+            allDomArr.forEach(function(ele, index){ //遍历allDomArr里ele相关的所有元素并输出。
+                console.log(dealClass(ele));
+            })
+        };
+        var oClass = document.getByClassName('demo');//执行函数
+    </script>
+
+    <script>
+        // forEach() 可以循环遍历数组；
+        // var arr = ['a', 'b', 'c'];
+        // arr.forEach(function(ele, index) {
+        //     console.log(ele);
+        //     console.log(index);
+        // });
+
+        //slice()方法
+        // var arr = ['a', 'b', 'c'];
+        // console.log(arr.slice(0, 1)); 截取从0开始到1的数组里的对象 --> a。
+    </script>
+</body>
+
+</html>

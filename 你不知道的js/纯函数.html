@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纯函数</title>
+</head>
+<body>
+   <script>
+       function deepClone(origin, target) {//深度克隆；
+        var target = target || {},
+            toStr = Object.prototype.toString,
+            arrStr = '[Object Array]';
+        for (var prop in origin) {
+            if(origin.hasOwnProperty(prop)) {
+                if(origin[prop] !== 'null' && typeof(origin[prop]) == 'object') {
+                    if(toStr.call(origin[prop]) == arrStr) {
+                        target[prop] = [];
+                    }else {
+                        target[prop] = {};
+                    }
+                    deepClone(origin[prop], target[prop]);
+                }else {
+                    target[prop] = origin[prop];
+                }
+            }
+        }
+        return target;
+    }
+//纯函数例子
+       var arr = [{name: 'duyi'}];
+       function add(_arr) {
+           var obj = {name: 'cst'};
+           var newArr = [];
+           for (var i = 0; i < _arr.length; i++) {
+               newArr[i] = deepClone(_arr[i]);
+            //    newArr[i] = _arr[i];
+           }
+           newArr.push(obj);
+           return newArr;
+       }
+       var newArr = add(arr);
+       newArr[0].name = 'haha';
+       newArr.push({name: 'haha2'});
+       console.log(arr);
+       console.log(newArr);
+   </script>
+</body>
+</html>

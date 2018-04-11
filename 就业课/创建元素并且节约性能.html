@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建元素并且节约性能</title>
+</head>
+
+<body>
+    <ul></ul>
+    <ul></ul>
+    <script>
+        var ul = document.getElementsByTagName('ul')[0];
+        // var div = document.createElement('div'); 用div会改变dom结构；
+        var fraf = document.createDocumentFragment();  //创建文档碎片，文档碎片不会占用dom结构。
+        for (var i = 0; i < 100; i++) {
+            var li1 = document.createElement('li');
+            li1.innerHTML = i;
+            fraf.appendChild(li1);
+        }
+        ul.appendChild(fraf);
+
+    </script>
+    <script>
+        // 另外一种拼接字符串的方法
+        var ul2 = document.getElementsByTagName('ul')[1];
+        var str = "";
+        for(var j = 0; j < 100; j++) {
+            str += "<li>" + i +"</li>"
+        }
+        ul2.innerHTML = str;
+    </script>
+</body>
+
+</html>

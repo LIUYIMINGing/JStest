@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>命名规则</title>
+</head>
+<body>
+<script>
+    //管理变量，防止污染全局，适用于模块开发
+
+    //命名空间（老办法）
+    // var org = {
+    //     department1 : {
+    //         jicheng : {
+    //             name : 'jicheng',
+    //             age : 18
+    //         },
+    //         xuming : {
+    //             name : 'xuming',
+    //             age : 19
+    //         }
+    //     },
+    //     department2 : {
+    //         zhangsan : {
+    //             name : 'zhangsan',
+    //             age : 20
+    //         },
+    //         lisi : {
+    //             name : 'lisi',
+    //             age : 21
+    //         }
+    //     }
+    // }
+    //
+    //
+    //利用闭包
+    var name = 'bcd';
+    var initJi = (function () {
+        var name = 'abc';
+        function callName() {
+            console.log(name);
+        }
+        return function () {
+            callName();
+        }
+    }());
+    var initDeng = (function () {
+       var name = 123;
+       function callName() {
+           console.log(name);
+       }
+       return function () {
+           callName();
+       }
+    }());
+</script>
+</body>
+</html>

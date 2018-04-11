@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES5.0严格模式</title>
+</head>
+<body>
+<script>
+    // "use strict";//启用es5.0严格模式；
+//    写在页面最顶端则全篇执行严格模式，写在函数的顶端则本函数执行严格模式；
+    function trst() {
+        "use strict"; //推荐使用这种方法；
+        console.log(arguments.callee);
+    };
+    // es5.0不支持的方法
+    // 变量必须声明
+    // arguments.callee和function.caller以及with；不能用于es5.0；
+    // with() {  在括号中添加对象，会改变with函数执行区域内代码的作用域最顶端。
+    //
+    // }
+    var obj = {
+        name : "obj"
+    };
+    var name = 'window';
+    function test() {
+        var name = 'scope';
+        with(obj) {
+            console.log(name);
+        }
+    }
+    test();
+
+
+</script>
+</body>
+</html>

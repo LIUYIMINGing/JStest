@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            top: 0px;
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <title>弹性运动-模拟重力场</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        oDiv.onclick = function () {
+            startMove(this);
+        }
+        function startMove(obj) {
+            clearInterval(obj.timer);
+            var iSpeedX = 6;
+            var iSpeedY = 8;
+            var g = 6;
+            obj.timer = setInterval(function() {
+                iSpeedY += g;
+                 var newLeft = obj.offsetLeft + iSpeedX;
+                 var newTop = obj.offsetTop + iSpeedY;
+                 if (newTop >= document.documentElement.clientHeight - obj.offsetHeight) {
+                     iSpeedY *= -1;
+                     iSpeedY *= 0.8;
+                     iSpeedX *= 0.8;
+                     newTop = document.documentElement.clientHeight - obj.offsetHeight;
+                 } else if(newTop <= 0){
+                    iSpeedY *= -1;
+                    iSpeedY *= 0.8;
+                    iSpeedX *= 0.8;
+                    newTop = 0;
+                 }
+                 if (newLeft >= document.documentElement.clientWidth - obj.offsetWidth) {
+                     iSpeedX *= -1;
+                     iSpeedY *= 0.8;
+                     iSpeedX *= 0.8;
+                     newLeft = document.documentElement.clientWidth - obj.offsetWidth;
+                 } else if(newLeft <= 0){
+                    iSpeedX *= -1;
+                    iSpeedY *= 0.8;
+                    iSpeedX *= 0.8;
+                    newLeft = 0;
+                 }
+                 obj.style.left = newLeft + 'px';
+                 obj.style.top = newTop + 'px';
+            },100)
+        }
+    </script>
+</body>
+</html>

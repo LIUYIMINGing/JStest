@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>斐波那契数列</title>
+</head>
+<body>
+<script>
+    var n = parseInt(window.prompt('input'));
+    var first = 1,
+        second = 1,
+        third;
+    if(n > 2){
+        for (var i = 0; i < n - 2 ; i ++){
+            third = first + second;
+            first = second;
+            second = third;
+        }
+        document.write(third);
+    }else {
+        document.write(1);
+    }
+
+</script>
+</body>
+</html>

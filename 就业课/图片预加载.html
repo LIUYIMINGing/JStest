@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片预加载</title>
+</head>
+<body>
+    <!-- <img src="../img/aaa.jpg" alt=""> -->
+    <button>getImage</button>
+    <script>
+        // 图片懒加载
+        // var btn = document.getElementsByTagName('button')[0];
+        // btn.onclick = function () {
+        //     var img1 = new Image();
+        //     img1.src = "../img/aaa.jpg"
+        //     document.body.appendChild(img1);
+        // }
+
+        // 异步加载图片。-->图片预加载。
+        var img = new Image();
+        // img.src = "../img/aaa.jpg";
+        img.src = "https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDGBB0DceyqXYDtwm40AjgMh79kzZiaCfVCAyrpMmTEr9JwbM71MFXVicib4qdyjkgW00/220?tp=webp"
+        img.onload = function () {
+            document.body.appendChild(img);
+        };
+        // 懒加载+预加载
+        var btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function () {
+            var img1 = new Image();
+            img1.src = "../img/aaa.jpg"
+            img1.onload = function () {
+            document.body.appendChild(img1);
+            }
+        }
+    </script>
+</body>
+</html>

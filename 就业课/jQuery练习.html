@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-3.3.1.js"></script>
+    <title>jQuery练习</title>
+</head>
+<body>
+    <div class="demo0">
+        <p>1</p>
+    </div>
+    <p>2</p>
+    <ul>
+        <li>1</li>
+        <li id="demo">2</li>
+        <li>3</li>
+        <li>4
+            <p>this is p dom</p>
+        </li>
+    </ul>
+    <select name="" id="">
+        <option value="第一">第一</option>
+        <option value="第二" selected>第二</option>
+        <option value="第三">第三</option>
+        <option value="第四">第四</option>
+        <option value="第五">第五</option>
+    </select>
+    <script>
+        // $(function a() {
+        //     console.log('dgsth')
+        // })
+        // $('p', '.demo').css({background: '#f00', width: '100px', height: '100px'})//指定选择.demo里的p
+        // $('p').css('color','orange')//泛选p；
+        //
+        // $('li').filter('.demo').css('color','red');//筛选
+        // $('li').filter(function() {//filter会循环遍历ul里的li，当返回值为true的时候就会执行后续的css样式；
+        //     return true;
+        // }).css('color','red');
+        // $('li').filter(function(index) {
+        //     return index%3 == 0;
+        // }).css('color','red');
+        // $('li').not(function(index) {//not的使用方法与filter相反。；
+        //     return index%3 == 0;
+        // }).css('color','red');
+        //
+        // $('li').has('p').css('color','red');//has找的是有p标签的li；
+        // $('li').find('p').css('color','red');//find找的是li里的p标签；
+        //
+        // console.log($('li').eq(2).is('.demo'));//is函数是用来判断true和false的；
+        //
+        // $('li').click(function() {
+        //     console.log(this);
+        // })
+        //
+        $('#demo').prop('class','demoClass');
+        $('#demo').attr('xx','yy');
+        $('#demo').on('click', function(){
+            console.log('a');
+        });
+    </script>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        $('li').wrapAll('<div>');//会破坏结构
+    </script>
+</body>
+</html>

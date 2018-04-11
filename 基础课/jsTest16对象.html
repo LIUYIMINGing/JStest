@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象(构造函数)</title>
+</head>
+<body>
+<script>
+    function Car(color){
+        this.color = color;
+        this.name = 'BMW';
+        this.height = '1400';
+        this.lang = '5000';
+        this.weight = '1000';
+        this.health = 100;
+        this.run = function () {
+            this.health --;
+        }
+    }
+    var car = new Car('red');
+    var car1 = new Car('blue');
+    //基本类型；
+    function Student(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.grade = 2008;
+    }
+    var student = new Student('xiaoli', 18, 'male');
+</script>
+</body>
+</html>

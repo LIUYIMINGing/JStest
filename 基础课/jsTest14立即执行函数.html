@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立即执行函数</title>
+</head>
+<body>
+<script>
+    //立即执行函数跟普通函数没有区别，唯一区别是他执行完就销毁，即只能执行一次。
+    //立即执行函数，针对初始化功能的函数；
+    (function () {  //此函数只被执行一次，执行结束立即销毁；
+        var a1 = 100,
+            b1 = 101;
+        console.log(a1 + b1);
+    }()); //里面小括号不能省；
+    var num = (function (a, b, c){//可以设置形参；
+        console.log(a + b + c);
+        var d = a + b + c;
+        return d;
+    }(1, 2, 3));//同样可以设置实参；
+    console.log(num);
+    //只有表达式才能被执行符号执行；
+    // function test () {
+    //     var a2 = 100;
+    // }();//此时是不会被执行的，会报语法错误;
+    function test() { //这叫函数声明；
+        var a3 = 100;
+    };
+    test();//这时就会执行。-->只有表达式才能被执行符号执行；
+    var test1 = function () {  //这句代码就叫函数表达式； -->只有表达式才能被执行符号执行；
+        console.log(33);
+    }();//此时就能被执行
+    //
+    var test2 = function () {
+      console.log('test2的名字');
+    }();//此时这个函数表达式就相当于是一种立即执行函数；
+    // test2();//此时会报错，test2此时未被定义；test2此时就不代表一个函数了。
+    //正负号等操作符也能生成立即执行函数；
+    + function test3() {
+        console.log("正负或者！号也能生成立即执行函数")
+    }();
+    (function () {//此时最外面的小括号是数学运算符；
+        console.log(44)
+    }());
+    //总结：
+    //  (function () {}())-->这种形式，其实就是先用外面的小括号（数学运算符）把里面的声明函数或者匿名函数变成表达式，所以这种立即执行函数形式其实是底层代码通过数学符号来定义的；
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纯函数例子-数组去重</title>
+</head>
+<body>
+    <input type="text" id='ip'>
+    <script>
+        //数组去重
+        var personArr = [
+            {name : '王一', des : 'wangyi', sex : 'm'},
+            {name : '王二', des : 'wanger', sex : 'f'},
+            {name : '刘一', des : 'liuyi', sex : 'm'},
+            {name : '刘二', des : 'liuer', sex : 'f'},
+            {name : '张一', des : 'zhangyi', sex : 'm'},
+            {name : '张二', des : 'zhanger', sex : 'f'}
+        ];
+        var oInp = document.getElementById('ip');
+        oInp.oninput = function () {
+            console.log(filterByText(this.value, personArr));
+        }
+        function filterByText(text, arr) {
+            var newArr = [];
+            for(var i = 0; i < arr.length; i++){
+                arr[i].name.indexOf(text) != -1 ? newArr.push(arr[i]) : '';
+            }
+            return newArr;
+        }
+    </script>
+</body>
+</html>

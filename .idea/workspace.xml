@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ce403732-1061-47ca-8df0-698db77f5fcf" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="lesson01.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/就业课/lesson01.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>9</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/菲波那切数列.html" />
+        <option value="$PROJECT_DIR$/100以内质数.html" />
+        <option value="$PROJECT_DIR$/jsTest06switch语句.html" />
+        <option value="$PROJECT_DIR$/css/jsTest06switch语句.html" />
+        <option value="$PROJECT_DIR$/jsTest07数组.html" />
+        <option value="$PROJECT_DIR$/jsTest08对象.html" />
+        <option value="$PROJECT_DIR$/jsTest10类型转换.html" />
+        <option value="$PROJECT_DIR$/jsTest09typeof操作符.html" />
+        <option value="$PROJECT_DIR$/jsTest11函数小练习.html" />
+        <option value="$PROJECT_DIR$/jsTest12递归预编译.html" />
+        <option value="$PROJECT_DIR$/jsTest14立即执行函数.html" />
+        <option value="$PROJECT_DIR$/jsTest15闭包2.html" />
+        <option value="$PROJECT_DIR$/jsTest15闭包3.html" />
+        <option value="$PROJECT_DIR$/jsTest16对象.html" />
+        <option value="$PROJECT_DIR$/jsTest16对象-构造函数内部原理.html" />
+        <option value="$PROJECT_DIR$/jsTest17包装类.html" />
+        <option value="$PROJECT_DIR$/jsTest15闭包4-题.html" />
+        <option value="$PROJECT_DIR$/js随时练手.html" />
+        <option value="$PROJECT_DIR$/jsTest18原型.html" />
+        <option value="$PROJECT_DIR$/jsTest19原型链.html" />
+        <option value="$PROJECT_DIR$/jsTest20call+apply.html" />
+        <option value="$PROJECT_DIR$/jsTest21继承模式.html" />
+        <option value="$PROJECT_DIR$/jsTest13闭包.html" />
+        <option value="$PROJECT_DIR$/jsTest15闭包5私有化变量.html" />
+        <option value="$PROJECT_DIR$/jsTest21继承模式-闭包型.html" />
+        <option value="$PROJECT_DIR$/jsTest22命名规则.html" />
+        <option value="$PROJECT_DIR$/js.html" />
+        <option value="$PROJECT_DIR$/jsTest16对象-连续调用小技巧.html" />
+        <option value="$PROJECT_DIR$/jsTest23进制.html" />
+        <option value="$PROJECT_DIR$/jsTest25NaN函数.html" />
+        <option value="$PROJECT_DIR$/jsTest27arguments.html" />
+        <option value="$PROJECT_DIR$/jsTest24题.html" />
+        <option value="$PROJECT_DIR$/jsTest28克隆-深度克隆.html" />
+        <option value="$PROJECT_DIR$/jsTest29三目运算符.html" />
+        <option value="$PROJECT_DIR$/jsTest30数组.html" />
+        <option value="$PROJECT_DIR$/jsTest31类数组.html" />
+        <option value="$PROJECT_DIR$/jsTest26This.html" />
+        <option value="$PROJECT_DIR$/jsTest32try+catch.html" />
+        <option value="$PROJECT_DIR$/jsTest33ES5.0严格模式.html" />
+        <option value="$PROJECT_DIR$/jsTest34DOM.html" />
+        <option value="$PROJECT_DIR$/jsTest35日期对象.html" />
+        <option value="$PROJECT_DIR$/jsTest36正则表达式.html" />
+        <option value="$PROJECT_DIR$/就业课/lesson01.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="709" />
+    <option name="y" value="224" />
+    <option name="width" value="912" />
+    <option name="height" value="617" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JStest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JStest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JStest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JStest" type="462c0819:PsiDirectoryNode" />
+              <item name="就业课" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.jsTest21继承模式-闭包型.html">
+    <configuration name="jsTest18原型.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JStest/jsTest18原型.html" />
+    <configuration name="jsTest20call+apply.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JStest/jsTest20call+apply.html" />
+    <configuration name="jsTest21继承模式-闭包型.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JStest/jsTest21继承模式-闭包型.html" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.jsTest18原型.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.jsTest20call+apply.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.jsTest21继承模式-闭包型.html" />
+    </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.jsTest21继承模式-闭包型.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.jsTest20call+apply.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.jsTest18原型.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce403732-1061-47ca-8df0-698db77f5fcf" name="Default" comment="" />
+      <created>1515999148190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1515999148190</updated>
+      <workItem from="1515999155333" duration="8208000" />
+      <workItem from="1516068770844" duration="6821000" />
+      <workItem from="1516174190228" duration="2200000" />
+      <workItem from="1516239986228" duration="4052000" />
+      <workItem from="1516327708776" duration="5071000" />
+      <workItem from="1516587362824" duration="7502000" />
+      <workItem from="1516672635521" duration="9637000" />
+      <workItem from="1516759846495" duration="880000" />
+      <workItem from="1516761245019" duration="4037000" />
+      <workItem from="1517191634965" duration="5396000" />
+      <workItem from="1519264015798" duration="3230000" />
+      <workItem from="1519608624773" duration="1806000" />
+      <workItem from="1519717308123" duration="697000" />
+      <workItem from="1519782204598" duration="659000" />
+      <workItem from="1520228330153" duration="186000" />
+      <workItem from="1520299596237" duration="929000" />
+      <workItem from="1520385789467" duration="263000" />
+      <workItem from="1520401845707" duration="415000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="61989000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="709" y="224" width="912" height="617" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2872807" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955974" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23647799" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/jsTest10类型转换.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest09typeof操作符.html" />
+    <entry file="file://$PROJECT_DIR$/zuoye01.html" />
+    <entry file="file://$PROJECT_DIR$/菲波那切数列.html" />
+    <entry file="file://$PROJECT_DIR$/100以内质数.html" />
+    <entry file="file://$PROJECT_DIR$/css/jsTest06switch语句.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsTest03菲波那切数列.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest06switch语句.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest05-100以内质数.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest07数组.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest08对象.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest09typeof操作符.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest10类型转换.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest11函数小练习.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest14立即执行函数.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest01.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest17包装类.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest16对象-构造函数内部原理.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest15闭包4-题.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest02.html" />
+    <entry file="file://$PROJECT_DIR$/js随时练手.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsTest20call+apply.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest15闭包3.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest15闭包2.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest13闭包.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest15闭包5私有化变量.html" />
+    <entry file="file://$PROJECT_DIR$/js.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest21继承模式.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest21继承模式-闭包型.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest22命名规则.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest16对象.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest16对象-连续调用小技巧.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest23进制.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest04作业.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest25NaN函数.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest27arguments.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest24题.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest12递归预编译.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest18原型.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest19原型链.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest28克隆-深度克隆.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest31类数组.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest26This.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest30数组.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest32try+catch.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest29三目运算符.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest33ES5.0严格模式.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest34DOM.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest35日期对象.html" />
+    <entry file="file://$PROJECT_DIR$/jsTest36正则表达式.html" />
+    <entry file="file://$PROJECT_DIR$/就业课/lesson01.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

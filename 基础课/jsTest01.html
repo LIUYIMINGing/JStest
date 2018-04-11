@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a = 1;
+		var b = a -- + -- a; //先计算--a；然后a = 0；此时，b = 0 + 0；（至于a--，在b的赋值中不计算，a--是在b得到值之后，单独计算，与b无关，此时a=-1；这一句代码得到两个结果，其一是b=0；其二是a=-1；）
+		document.write(a + "</br>");
+		document.write(b);
+	</script>
+</body>
+</html>

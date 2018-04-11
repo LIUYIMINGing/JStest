@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的连续调用小技巧</title>
+</head>
+<body>
+<script>
+    var deng = {
+        smoke : function () {
+            console.log('吸烟很有益于健康!!!');
+            return this;  //返回deng本身，如果不添加这句话，则返回的是系统默认的 return undefined；
+        },
+        drink : function () {
+            console.log('喝酒有益也于健康！！！');
+            return this;
+        },
+        sharmate : function () {
+            console.log('杀马特也是蛮好的！！');
+            return this;
+        }
+    }
+    deng.smoke().drink().sharmate();
+</script>
+</body>
+</html>

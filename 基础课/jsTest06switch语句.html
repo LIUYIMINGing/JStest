@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch语句</title>
+</head>
+<body>
+<script>
+    var n = window.prompt('input');
+    switch (n){
+        case "周一":
+            console.log('周一');
+            break;
+        case "周二":
+            console.log('周二');
+            break;
+        case "周三":
+            console.log('周三');
+            break;
+        case "周四":
+            console.log('周四');
+            break;
+        case "周五":
+            console.log('周五');
+            break;
+        case "周六":
+            console.log('周六');
+            break; //中支循环
+        case "周日":
+            console.log('周日');
+            break;
+    }
+</script>
+<script>
+    var n = window.prompt('input');
+    switch (n){
+        case "周一":
+        case "周二":
+        case "周三":
+        case "周四":
+        case "周五":
+            console.log('休息');
+            break;
+        case "周六":
+        case "周日":
+            console.log('上班');
+            break;
+    }
+</script>
+<script>
+    //多种写法
+    var i = 0;
+    while (1){
+        i ++;
+        console.log(i);
+        if (i > 100){
+            break;
+        }
+    }
+</script>
+</body>
+</html>

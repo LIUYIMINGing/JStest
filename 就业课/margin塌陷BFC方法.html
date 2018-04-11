@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+       .wrapper{
+           margin-left: 100px;
+           margin-top: 100px;
+           width: 100px;
+           height: 100px;
+           background: gray;
+       }
+       .content{
+           margin-left: 50px;
+           margin-top: 50px;
+           width: 50px;
+           height: 50px;
+           background-color: papayawhip;
+       }
+    </style>
+    <title>margin塌陷BFC方法</title>
+</head>
+<body>
+    <!-- margin塌陷是指，子元素的margin-top值不生效 -->
+    <!-- BFC触发方式 
+        position:absolute;
+        display:inline-block;
+        float:left/right;
+        overflow:hidden;
+        四种触发条件任选其一就行。
+    -->
+    <div class="wrapper">
+        <div class="content"></div>
+    </div>
+</body>
+</html>
