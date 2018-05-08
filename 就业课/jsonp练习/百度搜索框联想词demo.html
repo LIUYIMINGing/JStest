@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度搜索框demo</title>
+    <style>
+        * {
+            text-decoration: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            /* border-width: 0; */
+        }
+        .wrapper {
+            margin: 100px 0 0 100px;
+        }
+
+        input {
+            width: 400px;
+            height: 34px;
+        }
+        ul {
+            width: 400px;
+            border: 1px solid #ccc;
+            /* height: 200px; */
+            display: none;
+        }
+        a{
+            font-size: 12px;
+            color: #999;
+            margin: 10px;
+        }
+        li:hover{
+            color: #242424;
+            background-color: #e8e8e8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input type="text">
+        <ul></ul>
+    </div>
+    <script>
+        var oInput = document.getElementsByTagName('input')[0],
+            oUl = document.getElementsByTagName('ul')[0];
+        oInput.oninput = function () {
+            var value = this.value;
+            // console.log(value);
+            var oScript = document.createElement('script');
+            oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value + '&cb=doJson';
+            // 获取百度后台地址，value是我们输入的关键字，doJson是我们要根据输入的关键字来执行的函数
+            // doJson此处不能像value一样用‘+ value +’来拼接，是因为一旦这样拼接，doJson就变成了一个变量，这个变量代表了整个doJson函数，就跟原本的需求冲突了。
+            document.body.appendChild(oScript);//将创建的script加到body里
+            document.body.removeChild(oScript);//将上一个创建的script移除，
+        }
+
+        function doJson(data) { //这个函数是在ul里添加一些li，这些li的内容是根据输入的关键字而匹配到的百度后台的数据。
+            // console.log(data);
+            var s = data.s, // s 是百度后台跟输入的关键字所匹配的数据的数组；可以打开上面的src链接看看返回的结构
+                str = '';
+            if (s.length > 0) {// 此处的判断是防止当s为空的时候ul样式影响美观。
+                s.forEach(function (ele, index) { //forEach循环数组
+                    str += '<li><a href = "https://www.baidu.com/s?wd=' + ele + '">' + ele + '</a></li>' // str 连城一个整体的带li标签的字符串;
+                });
+                // oUl.appendChild()   此处不能使用appendChild()，因为appendChild里面只能添加DOM，不能添加字符串.
+                oUl.innerHTML = str; // 用innerHTML而不用innerText是因为innerText只能添加字符串，它会把'<li>'直接当字符串展示出来。
+                oUl.style.display = 'block';
+            } else {
+                oUl.style.display = 'none';
+            }
+        }
+        // 一些接口 www.bejson.com/knownjson/webInterface/
+    </script>
+</body>
+
+</html>

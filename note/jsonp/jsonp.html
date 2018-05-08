@@ -15,18 +15,24 @@
         4, 实现定义好处理跨域获取数据的函数，如function，doJson（data）{}
         5，用src获取数据的时候添加一个参数 “cb=‘doJson’”（服务端会根据参数cb的值返回对应的内容）此内容为以cb对应的值doJson为函数真实要传递的数据为函数的参数的一串字符 如doJson（‘数据’）
      -->
+     <!-- 
+         jsonp一般为get请求
+      -->
      <!--  -->
-     <!--  -->
-    <img src="https://www.baidu.com/img/bd_logo1.png?qua=high&where=super" alt="">
+    <!-- <img src="https://www.baidu.com/img/bd_logo1.png?qua=high&where=super" alt=""> -->
     <!-- 
         img 之所以能从百度跨域取到图片，是因为src不受同源策略限制
      -->
-     <iframe src="https://www.baidu.com" frameborder="0" width="1000px" height="600px"></iframe>
+     <!-- <iframe src="https://www.baidu.com" frameborder="0" width="1000px" height="600px"></iframe> -->
      <script>
          var oScript = document.createElement('script');
-         oScript.src = './index.txt?cb=aa';
-         document.body.appendChild(oScript);
-         function aa(data) {
+        //  oScript.src = './index.txt?cb=aa';
+         oScript.src = './index.txt';//异步加载  cb代表回调函数callback，是需要和后台约定好的
+         document.body.appendChild(oScript);//将预定义的script添加到body里，index.txt里的是aa(),直接执行西面定义的aa函数
+         function aa(data) {//定义aa函数
+             console.log(data);
+         }
+         function bb(data) {
              console.log(data);
          }
      </script>

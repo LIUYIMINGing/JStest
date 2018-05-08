@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cookie相关</title>
+</head>
+
+<body>
+    <!-- 
+        Cookie是由服务器端生成，发送给User-Agent(一般是浏览器)，（服务器告诉浏览器设置一下cookie），浏览器会将Cookie以key/value保存到某个目录下的文本文件内，下次请求同一网站时就发送该Cookie给服务器（前提是浏览器设置为启用cookie）。
+        Cookie就是一个小型文件（浏览器对cookie的内存大小是有限制的-------用来记录一些信息）
+     -->
+    <!-- 
+        1、标记用户身份的http请求首部（Request Headers）
+            form：e-mail
+            user-agent ：浏览器
+            referer：跳转链接
+        2、IP地址 不稳定
+        3、用户登录 太多的时候太麻烦
+        4、胖URL 在原来url基础上拓展，标记用户；只能标记在本窗口里的，一旦关闭窗口就没办法标记
+        5、cookie
+
+      -->
+    <!-- 
+          Cookie有保质期
+          一般大小4k
+       -->
+    <script>
+        // var oDate = new Date();
+        // oDate.setDate(oDate.getDate() + 3);
+
+
+        //    chrome需要有请求才行
+        // document.cookie = 'age=18;max-age=-1000'; //变成负值则删除此条cookie
+        // max-age 就是cookie的保存时间段
+        // 不设置max-age的时候就是默认的时间。
+        //expires设置的是xxxx xx xx格式的时间
+        // document.cookie = 'name=aimee;expires=' + oDate;
+        //    console.log(document.cookie);
+        // document.cookie = 'school=duyi;expires=' + oDate + ';path=/';
+
+
+    </script>
+    <script>
+        var mangeCookie = {
+            setCookie : function (name, value, time) {
+                document.cookie = name + '=' + value + ';max-age=' + time;
+                return this;
+            },
+            removeCookie : function (name){
+                return this.setCookie(name, '', -1);
+            },
+            getCookie : function (name, callback) {
+                var allCookieArr = document.cookie.split('; ');
+                // console.log(allCookieArr);
+                for(var i = 0; i < allCookieArr.length; i ++) {
+                    var itemCookieArr = allCookieArr[i].split('=');
+                    // console.log(itemCookieArr);
+                    if(itemCookieArr[0] == name) {
+                        callback(itemCookieArr[1]);
+                        break;
+                    }
+                }
+                return this;
+            }
+        }
+        mangeCookie //链式调用 需要上面增加一个  return this
+            .setCookie('color','red','10000')
+            .setCookie('color1','red','10000')
+            .setCookie('color2','red','10000')
+            .setCookie('teacher','aimee','20000')
+            .removeCookie('color')
+            .getCookie('teacher',function(data) {
+                console.log(data)
+            });
+    </script>
+</body>
+
+</html>
