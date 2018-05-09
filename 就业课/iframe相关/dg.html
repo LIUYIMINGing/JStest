@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dg</title>
+</head>
+
+<body>
+    <iframe src="./ds.html" frameborder="0" name="ds"></iframe>
+    <script>
+        var oIframe = document.getElementsByTagName('iframe')[0];
+        // oIframe.onload = function() {
+        // console.log(window.frames['ds'].age);//简易写法（部分浏览器不支持）
+        // console.log(oIframe.contentWindow.age);//通过dom元素查找
+        // }
+        var oldAge = 55;
+
+        // var oSrc = oIframe.src;
+        // document.onclick = function () {
+        //     oIframe.src = oSrc + '#' + oldAge;
+        //     oldAge++;
+        // }
+        var flag = true;
+        oIframe.onload = function () {
+            if (flag) {
+                oIframe.src = './xl.html'; //此处替换掉原来的src，但是当前的页面并没有关闭，window.name的机制就是只要当前页面不关闭，那么window.name的值就一直存在，而且xl.html与dg是同源所以就能直接获取ds.html的值
+                flag = false;
+            } else {
+                console.log(oIframe.contentWindow.name);
+            }
+        }
+    </script>
+</body>
+
+</html>

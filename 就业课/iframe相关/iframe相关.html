@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe相关</title>
+</head>
+<body>
+    <!-- 
+        iframe 内联窗口
+        支持同源策略，需要在服务器下打开页面才能有效
+        一、可以在一个网页里嵌入另一个网页
+            常用语：导航栏tab切换页面（古老的做法）、在线编辑器、广告植入
+     -->
+     <!-- 
+         window.self  获取自己的属性：没啥用
+         window.parent  获取父级窗口对象
+         window.top 获取顶级窗口对象
+      -->
+    <iframe src="./demo.html" frameborder="1"></iframe>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cookie记录方块位置</title>
+    <style>
+        #demo{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script>
+        var oDemo = document.getElementById('demo');
+        var mangeCookie = {
+            setCookie: function (name, value, time) {
+                document.cookie = name + '=' + value + ';max-age=' + time;
+                return this;
+            },
+            removeCookie: function (name) {
+                return this.setCookie(name, '', -1);
+            },
+            getCookie: function (name, callback) {
+                // console.log(document.cookie);
+                var allCookieArr = document.cookie.split('; '); //编辑字符串,从；位置截取成数组
+                // console.log(allCookieArr);
+                for (var i = 0; i < allCookieArr.length; i++) {
+                    var itemCookieArr = allCookieArr[i].split('='); //将第i位的字符串变成[x,y]形式的单个数组
+                    // console.log(itemCookieArr);
+                    if (itemCookieArr[0] == name) {
+                        callback(itemCookieArr[1]);
+                        return this;
+                    }
+                }
+                callback(undefined); //当循环完毕没有找到对应的name的时候返回undefined；
+                return this;
+            }
+        }
+        var drag = {
+            init: function(dom) {
+                this.dom = dom;
+                var _this = this;
+                this.bindEvent();
+                mangeCookie.getCookie('newLeft', function (data) {
+                        _this.dom.style.left = data + 'px';
+                }).getCookie('newTop', function (data) {
+                        _this.dom.style.top = data + 'px';
+                })
+            },
+            bindEvent: function () {
+                this.dom.onmousedown = this.mouseDown.bind(this); //改变mosueDown的this指向drag
+            },
+            mouseDown: function (e) {
+                document.onmousemove = this.mouseMove.bind(this);
+                document.onmouseup = this.mouseUp.bind(this);
+                this.disY = e.clientY - this.dom.offsetTop;
+                this.disX = e.clientX - this.dom.offsetLeft;
+            },
+            mouseMove: function (e) {
+                this.newLeft = e.clientX - this.disX;
+                this.newTop = e.clientY - this.disY;
+                this.dom.style.left = this.newLeft + 'px';
+                this.dom.style.top = this.newTop + 'px';
+            },
+            mouseUp: function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                mangeCookie.setCookie('newLeft', this.newLeft, 100000).setCookie('newTop', this.newTop, 100000);
+            }
+        }
+        drag.init(oDemo);
+    </script>
+</body>
+
+</html>

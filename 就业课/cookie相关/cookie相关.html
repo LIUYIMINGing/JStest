@@ -54,16 +54,18 @@
                 return this.setCookie(name, '', -1);
             },
             getCookie : function (name, callback) {
-                var allCookieArr = document.cookie.split('; ');
+                // console.log(document.cookie);
+                var allCookieArr = document.cookie.split('; ');//编辑字符串,从；位置截取成数组
                 // console.log(allCookieArr);
                 for(var i = 0; i < allCookieArr.length; i ++) {
-                    var itemCookieArr = allCookieArr[i].split('=');
+                    var itemCookieArr = allCookieArr[i].split('=');//将第i位的字符串变成[x,y]形式的单个数组
                     // console.log(itemCookieArr);
                     if(itemCookieArr[0] == name) {
                         callback(itemCookieArr[1]);
-                        break;
+                        return this;
                     }
                 }
+                callback(undefined);//当循环完毕没有找到对应的name的时候返回undefined；
                 return this;
             }
         }
@@ -74,6 +76,9 @@
             .setCookie('teacher','aimee','20000')
             .removeCookie('color')
             .getCookie('teacher',function(data) {
+                console.log(data)
+            })
+            .getCookie('teachessssr',function(data) {
                 console.log(data)
             });
     </script>
