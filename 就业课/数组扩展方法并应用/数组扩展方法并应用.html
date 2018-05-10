@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组扩展方法并应用</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5]
+        console.log(arr.length)//数组长度
+        console.log(arr.push(10))// 在数组末尾添加一个对象
+        arr.pop()//从尾部移除一位
+        
+        arr.sort()//通过解析数组中的每一位，按照字符串的形式进行排序
+        arr.sort(function(a,b){return a - b}); //按数值从小到大进行排序
+        arr.sort(function(a,b){return b - a});//按照从大到小排序
+
+        arr.shift()//删除原数组的第一项
+        arr.unshift(20)//在数组头部添加一项，需要传参
+        
+        arr.reverse()//将当前数组进行反转
+
+        arr.splice(2,2,11)//第一个参数是要删除的数组的index值（第三项开始），第二个参数是表示从删除对象开始删除几项,第三个参数是在删除的位置添加一个对象（11），可以当成替换，表示将删除的两个对象用11代替；
+        
+        arr.join('-');//将数组通过‘-’符号链接，变成字符串
+
+        arr.slice(1,10)//表示从第2位开始截取数组，截取10个对象，变成一个新数组
+
+        arr.concat(0,0,0)//返回一个在原数组添加【0，0，0】后的数组的副本，原数组不发生改变
+
+        arr.indexOf(11)//得到所传参数在数组中第一次出现的位置
+        var str = 's|d|a|d|a|d|f|w'
+        console.log(str.split('|'))//将字符串从所传参数类型分割成字符串数组-->["s", "d", "a", "d", "a", "d", "f", "w"]
+        
+        arr.lastIndexOf(4)//从后往前找所传参数出现的位置
+        
+        arr.every(function(ele){return ele > 0});//相当于与或中的‘与’,返回布尔值
+
+        arr.some(function(ele){return ele > 0});//相当于与或中的‘或’
+
+    </script>
+</body>
+</html>

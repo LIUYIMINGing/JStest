@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组其他方法</title>
+</head>
+<body>
+    <script>
+        var arr = [
+            {name: 'aaa',age:12,like:'cat'},
+            {name: 'bbb',age:13,like:'dog'},
+            {name: 'ccc',age:14,like:'tiger'},
+            {name: 'ddd',age:15,like:'fish'}
+        ];
+        //forEach 方法
+        // arr.forEach(function(ele, index) {//遍历数组每一项
+        //     // console.log(ele,index)
+        //     if(index % 2 == 0) {
+        //         ele.sex = 'boy';
+        //     }else{
+        //         ele.sex = 'girl'
+        //     }
+        //     console.log('name:' + ele.name + '&like:' + ele.like);
+        // })
+        // console.log(arr);
+
+        //解析forEach源码，封装自己的forEach方法
+        // Array.prototype.myForEach = function(fn) {
+        //     var len = this.length;
+        //     for(var i = 0; i < len; i ++){
+        //         fn(this[i],i);//fn是传进来的函数，函数此时又能传进两个参数，ele和index；ele对应的就是this[i]，index对应的是i；
+        //     }
+        // }
+        // arr.myForEach(function(ele,index){
+        //     console.log(ele,index)
+        // });
+        
+        //filter 方法
+        // 过滤数组，并返回满足过滤条件的数组；原数组不发生变化
+        // var farr = arr.filter(function(ele,index) {
+        //     if(ele.age > 13) {
+        //         return true;
+        //     }
+        // })
+        // console.log(farr);
+        // filter源码
+        Array.prototype.myFilter = function(fn) {
+            var newArray = [];
+            var len = this.length;
+            for(var i = 0; i < len; i ++) { 
+                if(fn(this[i],i)){
+                    if(typeof this[i] == 'object') {
+                        var obj = {}
+                        newArray.push(deepClone(obj,this[i]));
+                    }else{
+                        newArray.push(this[i]);
+                    }
+                }
+            }
+            return newArray;
+        }
+        var farr = arr.myFilter(function(ele,index){
+            if(ele.age > 13) {
+                return true;
+            }
+        })
+        console.log(farr);
+        arr[2].name = 'xxxxx';
+        console.log(farr);
+        console.log(arr);
+        //深度克隆
+        var obj1 = {
+            name : 'lalala'
+        };
+        var obj2 = {
+            sex : 'girl',
+            name : 'bgbgbg',
+            teacher : {
+                t1 : {
+                    name : 'dg',
+                    age : 58
+                },
+                t2 : {
+                    name : 'ding',
+                    age : 38
+                }
+            } 
+        }
+        function deepClone(target, option) { //把option克隆到target
+            var copy,src;
+            if(option != null) {//判断option是否为空
+                for(var prop in option) { //遍历数组或对象内的元素
+                    src = target[prop]; //把target里的对象赋值给src；
+                    copy = option[prop]; // 把option里的对象赋值给copy
+                    if(copy && typeof copy == 'object') {//判断copy是引用值还是原始值
+                        if(Object.prototype.toString.call(copy) == '[object Array]'){//引用值走这里，并判断是数组还是对象。
+                            src = src ? src : [];//如果src本身有值，那么直接返回src，否则就返回一个新的空数组
+                        }else {
+                            src = src ? src : {}; //同上
+                        }
+                        target[prop] =  deepClone(src,copy);//递归,对引用值再次进行深度克隆，重复执行上面的操作。直到遍历到最里面的一个原始值为止。
+                        // 当引用值遍历完毕后则跳出递归，执行下面的else
+                    }else{//如果copy是原始值则直接走这里
+                        target[prop] = copy;
+                    }
+                }
+            }
+            return target;
+        }
+        deepClone(obj1, obj2);
+        console.log(obj1);
+
+        //map方法
+        // var c = arr.map(function(ele,index){
+        //     return ele.age += 10;
+        // })
+        // console.log(c);
+        // console.log(arr);
+        
+        Array.prototype.myMap = function(fn) {
+            var len = this.length;
+            var arr = [];
+            for(var i = 0; i < len; i ++) {
+                arr.push(fn(this[i],i))
+            }
+            return arr;
+        }
+        var aa = arr.myMap(function(ele,index){
+            return ele.age += 10;
+        })
+        console.log(aa);
+    </script>
+</body>
+</html>
