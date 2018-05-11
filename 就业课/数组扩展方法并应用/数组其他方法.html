@@ -131,6 +131,35 @@
             return ele.age += 10;
         })
         console.log(aa);
+        
+        //reduce方法
+        var arrX = [1,2,4,50,6]
+        // var r = arrX.reduce(function(preTotal, ele, index){
+        //     console.log(index);
+        //     return preTotal + ele;
+        // },20)
+        // console.log(r);
+        //reduce源码
+        Array.prototype.myReduce = function (fn,init) {
+            var len = this.length;
+            var pre = init;
+            var i = 0;
+            if(init === undefined) {
+                pre = this[0];
+                i = 1;
+            }
+            for(i; i < len; i ++) {
+                pre = fn(pre,this[i],i);
+                //每次执行for循环，pre = pre + preTotal + ele；
+            }
+            return pre;
+        }
+        var r = arrX.myReduce(function(preTotal, ele, index){
+            console.log(index);
+            return preTotal + ele;
+        },20)
+        console.log(r);
+
     </script>
 </body>
 </html>

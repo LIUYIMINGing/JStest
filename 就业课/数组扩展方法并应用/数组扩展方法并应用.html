@@ -39,7 +39,13 @@
         arr.every(function(ele){return ele > 0});//相当于与或中的‘与’,返回布尔值
 
         arr.some(function(ele){return ele > 0});//相当于与或中的‘或’
-
+        
+        var arrX = [6,2,4,50,6]
+        var r = arrX.reduce(function(preTotal, ele, index){  //reduce方法，表示数组的累加，当function后面不传参的时候preTotal是数组的第一位，function后面有值的时候，那个值是preTotal的值
+            return preTotal + '-' + ele;
+            //可以累加，也可以转化为字符串编辑
+        })
+        console.log(r);
     </script>
 </body>
 </html>
