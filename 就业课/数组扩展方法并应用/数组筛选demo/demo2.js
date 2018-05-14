@@ -22,6 +22,17 @@ function debounce(handle,delay) {
 var listUl = document.getElementById('list');
 var oInp = document.getElementById('inp');
 var sUl = document.getElementById('searchUl');
+var store = createStore({
+    text:'',sex:'all'
+})
+store.subScribe(function() {
+    fn();
+    rander(lastPerArr())
+})
+
+function fn() {
+    console.log(123);
+}
 function rander(list) {
     var str = '';
     list.forEach(function(ele, index) {
@@ -36,9 +47,10 @@ function rander(list) {
 rander(person);
 
 function deal() {
-    state.text = this.value;
+    // state.text = this.value;
+    store.dispatch({type:'text',value:this.value});
     // rander(addFn(objFilter,person));
-    rander(lastPerArr())
+    // rander(lastPerArr())
 }
 oInp.oninput = debounce(deal,800);
 function filterText(text,arr) {
@@ -51,11 +63,12 @@ function filterText(text,arr) {
 
 sUl.addEventListener('click',function(e) {
     if(e.target.tagName == 'LI'){
-        state.sex = e.target.getAttribute('sex');//获得自定义属性名的值：male或者female，将值赋给state.sex
+        // state.sex = e.target.getAttribute('sex');//获得自定义属性名的值：male或者female，将值赋给state.sex
+        store.dispatch({type:'sex',value:e.target.getAttribute('sex')});
         document.getElementsByClassName('active')[0].className = '';
         e.target.className = 'active';
         // rander(addFn(objFilter,person));//rander（数组）：这个数组就是addFn函数的执行结果；
-        rander(lastPerArr());
+        // rander(lastPerArr());
     }
 })
 
@@ -71,31 +84,16 @@ function filterSex(sex,arr) {
     }
 }
 
-var state = { //存储筛选的初试状态的值
-    text: '',
-    sex: 'all'//-->male
-}
-// var objFilter = {
-//     text: filterText,
-//     sex: filterSex
+// var state = { //存储筛选的初试状态的值
+//     text: '',
+//     sex: 'all'//-->male
 // }
-// function addFn(obj,arr) { //最后返回的是一个数组，这个数组是从arr中筛选出来的。
-//     var lastArr = arr;
-//     for(var prop in obj){//prop此时有两个值。一个是filterText，一个是filterSex
-//         lastArr = obj[prop](state[prop],lastArr);//获得了prop对应的数组，当prop时sex时，获得sex的数组，当prop是text时，获得text的数组；
-//         //当sex点击事件开始时，函数的调用者就变成了这个按钮（li），对应的生成的数组就变成了关于某一个sex的数组
-//         //当input事件开始时，函数的调用者就变成了input事件，对应的生成的数组就变成了text相关的数组。
-//         //这里用lastArr接收上一次事件返回的数组，等下一次调用的时候就把lastArr变成了类似person的源数组。
-//     }
-//     return lastArr;
-// }
-// addFn(objFilter,person)
 
 function addFn(obj, arr) {
     return function () {
         var lastArr = arr;
         for(var prop in obj) {
-            lastArr = obj[prop](state[prop], lastArr);
+            lastArr = obj[prop](store.getState()[prop], lastArr);
         }
         return lastArr;
     }
