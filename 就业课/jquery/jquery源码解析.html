@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery源码解析</title>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <script src="./jquery-3.3.1.js"></script>
+    <script>
+        // 无 new构造
+        // function jQuery(str) {
+        //     this[0] = document.getElementById(str);
+        //     this.length = 1
+        // }
+        // console.log(new jQuery('box'));
+
+        // function jQuery(str) {
+        //     return new jQuery.prototype.init(str);
+        // }
+        // jQuery.prototype.init = function (str) {
+        //     this[0] = document.getElementById(str);
+        //     this.length = 1;
+        // }
+        // console.log(jQuery('box'));
+
+
+        // 防止污染全局变量，封闭作用域，链式调用
+        (function (g, f) {
+            f(g);
+        })(window, function () {
+            window.jQuery = window.$ = jQuery; //jQuery就是利用这个把jquery暴露在window下的，
+            function jQuery(str) {
+                return new jQuery.prototype.init(str);
+            }
+            jQuery.prototype.init = function (str) {
+                this[0] = document.getElementById(str);
+                this.length = 1;
+            }
+            jQuery.prototype.html = function () {
+                console.log('html');
+                return this;
+            }
+            jQuery.prototype.css = function () {
+                console.log('css')
+                return this; //使得jquery可以连续调用方法。返回的是调用css方法的对象，并不是其他。
+            }
+            jQuery.prototype.init.prototype = jQuery.prototype;
+        }); //利用立即执行函数
+        // jQuery('box').html();
+        // jQuery('box').css();
+        jQuery('box').html().css();
+
+
+
+        // jquery 选择器
+        // 1  str
+        // $('#id') 
+        // $('.class')
+        // $('div')
+        // $('ul li')
+        // $('li:eq(1)')
+        // $('input[name="xxx"]')
+        // $('<li></li>')
+        // $('<li/>')
+        // $('<li>str')
+        // 2 dom
+        // $('ul').on('click',function() {
+        //     $(this).on('click',function() {
+
+        //     })
+        // })
+        // 3 null
+        // $(null/false/undefined)
+        // 4 还可以放 对象，数组
+        // 5 还可以放function
+        // $(function(){})   在文档加载完成后就执行
+    </script>
+</body>
+
+</html>
