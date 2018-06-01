@@ -7,6 +7,47 @@
     <title>jquery源码解析2</title>
 </head>
 <body>
+    <script src="./jquery-3.3.1.js"></script>
+    <!-- 
+        jQuery
+
+        $.extend({},obj1,obj2)
+     -->
+     <script>
+         var obj1 = {
+         'a':'bb',
+         'c':'dd'
+     }
+     var obj2 = {
+         'a':'bbbbb',
+         'd':'eee'
+     }
+     console.log($.extend(true,{},obj1,obj2))
+    //  true 对应深度克隆
+    // 工具方法
+    // $.extend(add); --->  jQuery
+    // $.add()
+
+
+    // 实例方法
+    // $.fn.extend(add); ---> prototype
+    // $().add()
     
+
+
+    // 扩展函数
+    $.extend(add)
+
+
+
+    // 合并
+    $.extend({},obj1,obj2)
+    $.extend(true,{},obj1,obj2)
+
+
+    // 1,如何实现一个函数两个方法
+    // 2，为什么一个函数既能在原型上又能在函数上
+     </script>
+     
 </body>
 </html>
