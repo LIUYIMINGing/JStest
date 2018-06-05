@@ -37,6 +37,10 @@ html,body{
     background-size: cover;
     display: none;
 }
+.slider-list .slider:nth-child(2) img,
+.slider-list .slider:nth-child(3) img{
+    width: 0%;
+}
 .slider .title{
     float: left;
     width: 40%;
@@ -84,4 +88,7 @@ html,body{
     border-radius: 50%;
     background-color: white;
     margin-right: 20px;
+}
+.slider-order .active{
+    background-color: red;
 }
