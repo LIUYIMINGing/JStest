@@ -2,3 +2,6 @@ w3c 标准：结构、行为、样式相分离
 1.this指向
     
 2.this调用jq方法
+
+$.extend(true,{},obj1,obj2)  将obj1和obj2合并到空对象里
+$.extend(true,obj1,obj2)  将obj2合并到obj1上
