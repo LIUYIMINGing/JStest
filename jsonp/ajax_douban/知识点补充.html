@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery.js"></script>
+    <script>
+        $.ajax({
+            type: 'GET',
+            // url: 'data.json',
+            //百度联想词  从wd--cb
+            url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa&cb=baidu',
+            // wd 是关键词，cb是接口，相当于callback
+            dataType: 'jsonp',
+            // success: function(data) {
+            //     console.log(data);
+            // },
+            error: function() {
+                
+            }
+        })
+        function baidu(data) {
+
+        }
+        // 1.jsonp的实现原理  跨域  
+            // 利用script的src不受同源策略影响，把scr插入到页面上
+        // 2.jsonp请求回的数据格式
+        // 3.json与jsonp的区别
+        //      1).json是数据格式，对象格式，可以多层嵌套；
+        //      2）.jsonp返回的script代码   jsonp  -->   json with padding
+    </script>
+</body>
+</html>

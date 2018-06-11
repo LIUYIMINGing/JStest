@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/index.css">
+    <link rel="stylesheet" href="./src/css/listPage.css">
+</head>
+<body>
+    <div class="global-nav">
+        <div class="bd">
+            <div class="top-nav-info">
+                <a href="https://www.douban.com/accounts/login?source=music" class="nav-login">登录</a>
+                <a href="https://www.douban.com/accounts/register?source=music" class="nav-register">注册</a>
+            </div>
+            <div class="top-nav-doubanapp">
+                <a href="https://www.douban.com/doubanapp/app?channel=top-nav" class="lnk-doubanapp">下载豆瓣客户端</a>
+            </div>
+            <div class="global-nav-items">
+                <ul>
+                    <li>
+                        <a href="https://www.douban.com">豆瓣</a>
+                    </li>
+                    <li>
+                        <a href="https://book.douban.com">读书</a>
+                    </li>
+                    <li>
+                        <a href="https://movie.douban.com">电影</a>
+                    </li>
+                    <li class="on">
+                        <a href="https://www.douban.com/location">同城</a>
+                    </li>
+                    <li>
+                        <a href="https://www.douban.com/groupm">小组</a>
+                    </li>
+                    <li>
+                        <a href="https://read.douban.com/?dcs=top-nav&dcm=douban">阅读</a>
+                    </li>
+                    <li>
+                        <a href="https://douban.fm/?from_=shire_top_nav">FM</a>
+                    </li>
+                    <li>
+                        <a href="https://time.douban.com/?dt_time_source=douban-web_top_nav">时间</a>
+                    </li>
+                    <li>
+                        <a href="https://market.douban.com/?utm_campaign=douban_top_nav&utm_source=douban&utm_medium=pc_web">集市</a>
+                    </li>
+                    <li>
+                        <a href="#move">更多</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-music">
+        <div class="nav-wrap">
+            <div class="nav-primary">
+                <div class="nav-logo">
+                    <a href="http://music.douban.com"></a>
+                </div>
+                <div class="nav-search">
+                    <form action="https://music.douban.com/subject_search">
+                        <input type="text" class="inp" placeholder="唱片名、表演者、条码、ISRC" name='search_text' autocomplete="off">
+                        <input type="submit" class="inp-btn">
+                    </form>
+                    
+                    <div id="search_suggest">
+                        <ul class="search_list">
+                            <!-- <li>
+                                <a href="">
+                                    <img src="https://img3.doubanio.com/spic/s1470373.jpg" alt="">
+                                    <div>
+                                        <em>sss</em>
+                                        <span>sdfa</span>
+                                        <p>sdjfiajd sdfj sjdfo sjdf</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="https://img3.doubanio.com/spic/s1470373.jpg" alt="">
+                                    <div>
+                                        <em>sss</em>
+                                        <span>sdfa</span>
+                                        <p>sdjfiajd sdfj sjdfo sjdf</p>
+                                    </div>
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-secondary"></div>   
+    </div>
+    <div class="search-result">
+        <div class="search-title"><h1 id="title"></h1></div>
+        <ul class="search-information">
+            <!-- <li>
+                <a href=""><img src="https://img3.doubanio.com//spic//s11185741.jpg" alt=""></a>
+                <div class="song-text">
+                    <p class="song-name">我只在乎你</p>
+                    <p class="tag">民谣/台湾</p>
+                </div>
+            </li>
+            <li>
+                <a href=""><img src="https://img3.doubanio.com//spic//s11185741.jpg" alt=""></a>
+                <div class="song-text">
+                    <p class="song-name">我只在乎你</p>
+                    <p class="tag">民谣/台湾</p>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <div class="list-wrap">
+        <div class="list-title">
+            <h1 class="title">搜索 成都</h1>
+        </div>
+        <div class="list-cont">
+            <div class="list-left">
+                <div class="list-item">
+                    <div class="item-root">
+                        <a href="https://music.douban.com/subject/26899717/" class="cover-link">
+                            <img src="https://img3.doubanio.com/lpic/s29114672.jpg" alt="成都" class="cover">
+                        </a>
+                        <div class="detail">
+                            <div class="title">
+                                <a href="https://music.douban.com/subject/26899717/" class="title-text">成都</a>
+                                <div class="label-actions">
+                                    <a href="https://music.douban.com/subject/26899717/?auto_play=1#link-report" class="icon"></a>
+                                </div>
+                            </div>
+                            <div class="rating sc-bwzfXH hxNRHc">
+                                <span class="allstar40 rating-stars"></span>
+                                <span class="rating_nums">7.5</span>
+                                <span class="pl">(5533人评价)</span>
+                            </div>
+                            <div class="meta abstract">赵雷 / 2016-10-24 / 单曲 / 数字(Digital) / 民谣</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                        
+    <script src="./src/js/jquery.js"></script>
+    <script src="./src/js/search.js"></script>
+</body>
+</html>
