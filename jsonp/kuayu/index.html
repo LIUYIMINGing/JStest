@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        function addScript(url) {
+            var script = document.createElement('script');
+            script.setAttribute('type','text/javascript');
+            script.src = url;
+            document.body.appendChild(script);
+        };
+        window.onload = function () {
+            addScript('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E9%BB%91%E6%B4%9E&cb=foo')
+        };
+        function foo(data) {
+            console.log(data);
+        }    
+    </script> -->
+    <script>
+        var $ = {
+            ajax:function(param) {
+                if(param.dataType == 'jsonp') {
+                    var isOrigin = true;
+                    if(isOrigin) {
+                        // 同源   ajax
+                    }else {
+                        // 非同源
+                        // 可以用上面的原生js创建script
+                    }
+                }
+            }
+        }
+        var param = {
+            type: 'post',
+            data: 'string',
+            url: '',
+            dataType: 'jsonp',
+            scccess : function() {
+
+            }
+        }
+        $.ajax(param);
+    </script>
+</body>
+</html>
