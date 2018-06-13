@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li{
+            display: inline-block;
+        }
+        li[class^='la']{ /* class类名中以la为开头的被选择出来 */
+            color: red;
+        }
+        li[class$='la']{ /* class类名中以la为结尾的被选择出来 */
+            color: orange;
+        }
+        li[class*='la']{ /* class类名中以只要出现la的都被选择出来 */
+            color: rgb(164, 197, 17);
+        }
+        :root{
+            background-color: #ccc;/* 选择根标签，不建议使用html标签 */
+        }
+    </style>
+    <title>css3选择器</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="class">4</li>
+        <li class="last">5</li>
+        <li class="item la">6</li>
+    </ul>
+</body>
+</html>

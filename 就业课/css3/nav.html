@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            display: inline-block;
+            background-color: rgba(255,125,0,1);
+            border-radius: 4px;
+            box-shadow: 0 10px 5px #cccccc;
+        }
+        @font-face{
+            font-family: 'myFirstFamily';
+            src:url(./THRASHER_PERSONAL_USE.ttf);
+        }
+        li{
+            display: inline-block;
+            border-right: 1px dashed #fff;
+            padding: 0 30px;
+            /* float: left; */
+            margin: 10px 0;
+            color: rgba(255,255,255,1);
+            font-size: 30px;
+            line-height: 30px;
+            text-shadow: 2px 2px 4px #ccc;
+            font-family: 'myFirstFamily';
+        }
+        li.last{
+            border: 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+        <li class="last">six</li>
+    </ul>
+</body>
+</html>

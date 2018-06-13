@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* border-radius: 30px 30px 30px 30px; */
+            /* box-shadow: 6px 6px 10px 6px #cccccc ; */
+            border: 50px solid #ccc;
+            border-image: url(./1.jpg) 100;
+        }
+        .demo1{
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(45deg,red 10%,green 20%, yellow 60%, pink 100%);
+            /*径向渐变，第一个参数可以用to 方向或者角度值xxxdeg,色标后的百分值是代表渐变截止的位置*/
+        }
+        .demo2{
+            width: 200px;
+            height: 100px;
+            background: radial-gradient(circle 100px at 50% 50%,red 10%,green 20%, yellow 60%, pink 100%);
+        }
+        .demo3{
+            width: 200px;
+            height: 100px;
+            background: radial-gradient(ellipse 100px 50px at 50% 50%,red 10%,green 20%, yellow 60%, pink 100%);
+            /* 椭圆行渐变 */
+        }
+        @font-face{
+            font-family: 'myFirstFamily';
+            src:url(./THRASHER_PERSONAL_USE.ttf)
+        }
+        .demo4{
+            width: 100px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            word-wrap: break-word;
+            font-family: 'myFirstFamily';
+        }
+        .demo5{
+            width: 300px;
+            height: 300px;
+            border: 10px solid #ccc;
+            background: url(./1.jpg) no-repeat;
+            /* background-size: 100px; */
+            /* background-size: contain; *//* 保证背景图片完整呈现在元素内*/
+            background-size: cover;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        border-radius
+        border-top-left-radius: Xpx Ypx;单独设置矩形左上角圆角大小
+     -->
+     <!-- 
+         box-shadow / text-shadow  性能杀手，慎用
+         box-shadow: X轴偏移量  Y轴偏移量 【阴影模糊半径】 【阴影扩展半径】 【阴影颜色】 【投影方式】
+         box-shadow: X轴偏移量  Y轴偏移量 【阴影模糊半径】 【阴影扩展半径】 【阴影颜色】 【投影方式】,
+                     X轴偏移量  Y轴偏移量 【阴影模糊半径】 【阴影扩展半径】 【阴影颜色】 【投影方式】,
+                     X轴偏移量  Y轴偏移量 【阴影模糊半径】 【阴影扩展半径】 【阴影颜色】 【投影方式】,
+                     X轴偏移量  Y轴偏移量 【阴影模糊半径】 【阴影扩展半径】 【阴影颜色】 【投影方式】
+                     可以加四个方向的投影，
+      -->
+      <!-- 
+        font-face  可以引字体
+       -->
+       <!-- 
+           border-image
+        -->
+        <!-- 
+            background-size:
+         -->
+      <div class="demo"></div>
+      <div class="demo1"></div>
+      <div class="demo2"></div>
+      <div class="demo3"></div>
+      <p class="demo4">sdadqwqfswasn;knm;hiwefhq'kn[ovhkn;</p>
+      <div class="demo5"></div>
+</body>
+</html>
