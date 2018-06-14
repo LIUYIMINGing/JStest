@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .cgI,.item{
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-top: 200px;
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+            background-color: red;
+            transition: left 2s linear, opacity 2s linear;
+            /* transition: 想要变化的属性 变化时间 变化函数 延迟 */
+        }
+        .item:hover{
+            width: 300px;
+        }
+        .cg,.demo{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .demo:hover + .item{
+            left: 300px;
+            opacity: 1;
+        }
+        .cg:hover + .cgI{
+            left: 300px;
+            opacity: 1;
+        }
+    </style>
+    <title>css3动态变化</title>
+</head>
+<body>
+    <div class="demo">dg</div>
+    <div class="item">dgI</div>
+    <div class="cg">cg</div>
+    <div class="cgI">cgI</div>
+</body>
+</html>

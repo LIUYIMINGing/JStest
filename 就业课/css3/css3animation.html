@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .item{
+            position: absolute;
+            left: 0;
+            top: 30px;
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: move 10s linear;
+            /* animation: 运动名称 运动时间 运动函数 */
+        }
+        @keyframes move{
+            0%{/* 关键帧 */
+                left: 100px;
+            }
+            50%{
+                left: 400px;
+                background-color: orange;
+            }
+            100%{
+                left: 400px;
+                top: 800px;
+            }
+        }
+        button{
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+    <title>css3animation</title>
+</head>
+
+<body>
+    <button id="btn">btn</button>
+    <!-- <div class="demo"></div> -->
+    <div class="item" id="item"></div>
+    <script>
+        var flag = true;
+        btn.onclick = function() {
+            if(flag) {
+                flag = false;
+            item.style.animationPlayState = 'paused';
+
+            }else {
+                flag = true;
+                item.style.animationPlayState = 'running';
+            }
+        }
+    </script>
+</body>
+
+</html>
