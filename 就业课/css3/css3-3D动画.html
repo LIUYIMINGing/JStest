@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrapper{
+            transform-style: preserve-3d;
+            perspective: 600px;/* 景深： 显示3d效果 */
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333;
+            
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transform: rotateX(45deg);
+            backface-visibility: hidden;/* 背面隐藏 */
+        }
+    </style>
+    <title>css3-3D动画</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item"></div>
+    </div>
+</body>
+</html>

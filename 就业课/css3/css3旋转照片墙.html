@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrapper{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            margin-top: 200px;
+            animation: turn 3s linear infinite;
+        }
+        .wrapper div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            opacity: 0.5;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            font-size: 30px;
+            
+        }
+        .wrapper .item1{
+            background-color: red;
+            transform: rotateY(0deg) translate3d(0,0,200px);
+        }
+        .wrapper .item2{
+            background-color: green;
+            transform: rotateY(60deg) translate3d(0,0,200px);
+        }
+        .wrapper .item3{
+            background-color: orange;
+            transform: rotateY(120deg) translate3d(0,0,200px);
+        }
+        .wrapper .item4{
+            background-color: blue;
+            transform: rotateY(180deg) translate3d(0,0,200px);
+        }
+        .wrapper .item5{
+            background-color: deeppink;
+            transform: rotateY(240deg) translate3d(0,0,200px);
+        }
+        .wrapper .item6{
+            background-color: purple;
+            transform: rotateY(300deg) translate3d(0,0,200px);
+        }
+        @keyframes turn{
+            0%{
+                transform: rotateX(-20deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(-20deg) rotateY(360deg);
+            }
+        }
+    </style>
+    <title>旋转照片墙</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div>
+    </div>
+</body>
+</html>

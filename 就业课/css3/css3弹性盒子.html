@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        body{
-            font-size: 0;
+        html,body{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;/* 水平居中 */
+            align-items: center;/* 垂直居中 */
         }
         .wrapper{
             /* flex 为复合属性，且必须配合父级元素display：flex使用 */
@@ -15,13 +19,16 @@
                 flex-shrink： 缩小比例
                 flex-basis: 伸缩基准值
                 flex: 是flex-grow，flex-shrink，flex-basis的缩写
-                order:排列顺序
-                align-self:单个项目对齐方式
+                order:排列顺序，从小到大排
+                align-self:单个项目对齐方式 flex-end/flex-start/center/baseline/auto/stretch
              */
-            display: flex;/* 当前wrapper盒子是一个弹性盒子 */
-            width: 100%;
+             /* flex-direction: row-reverse;逆向排列 */
+            /* display: flex; */
+            /* 当前wrapper盒子是一个弹性盒子 */
+            width: 600px;
             height: 500px;
             border: 1px solid #333;
+
         }
         .wrapper .item{
             text-align: center;
