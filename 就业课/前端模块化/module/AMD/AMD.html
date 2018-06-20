@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AMD</title>
+</head>
+<body>
+    <script>
+        // AMD
+        // CommonJS为服务器端而生，采用的同步加载方式。因此不适用浏览器。因为浏览器需要到服务器加载文件，请求时间远大于本机读取的时间，倘若文件较多，网络迟缓就会导致页面瘫痪，所以浏览器更希望能够实现异步加载的方式。
+        // AMD规范则是异步加载模块，允许指定回调函数。等模块异步加载完成后即可调用回调函数。
+        // AMD得意的产出就是require.js
+
+        // AMD的核心思想就是通过define来定义一个模块，然后使用require来加载一个模块。
+        // main.js
+        require(['jquery',"math"],function($,math) {
+            //   [ '依赖的模块1'，‘依赖的模块2’ ]
+            // ...
+        })
+        // math.js
+        define(function () {
+            // ...
+        })
+    </script>
+</body>
+</html>

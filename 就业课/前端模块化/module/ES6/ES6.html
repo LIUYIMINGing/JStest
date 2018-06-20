@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6
+        // ES6自带模块化，可以使用import关键字引入模块，通过export关键字导出模块，功能较AMD、CMD更为强大，也是我们所推崇的，但是由于ES6目前无法在浏览器中执行，所以，我们只能通过babel将不被支持的import编译为当前收到广泛支持的require。
+        
+        // 使用import关键字引入模块，通过export关键字导出模块。
+        
+        import tool from '../js/tool.js'
+
+        export class show { //导出
+            constructor() {
+                this.age = 18;
+            }
+            showName () {
+                return this.age;
+            }
+        }
+    </script>
+</body>
+</html>

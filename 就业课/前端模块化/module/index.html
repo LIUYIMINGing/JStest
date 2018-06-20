@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 四种简单模块化形式，但并非最标准的写法
+        // 1.函数
+            // function add(a,b) {
+            //     return a + b;
+            // }
+            // function a(a) {
+            //     console.log(a);
+            // }
+        // 2. 对象式写法
+            // var ppt = {
+            //     len: 3,
+            //     init : function () {
+
+            //     },
+            //     createDom: function () {
+
+            //     }
+            // }
+        // 3.立即执行函数，匿名函数
+            // var obj = (function() {
+            //     var len = 3;
+            //     function add(a, b) {
+            //         return a + b;
+            //     }
+            //     return { //返回出去需要用到的方法
+            //         add: add
+            //     }
+            // })()
+            // console.log(obj.add(1,2));
+        // 4.依赖
+            // (function (a, b) {
+            //     b(a);
+            // })(window, function(window) {
+            //     window.jQuery = jQuery;
+            //     function jQuery() {
+
+            //     }
+            // })
+
+            // var module1 = (function (m) {
+            //     m.add = function (a, b) {
+            //         return a + b;
+            //     }
+            //     return m;
+            // })(window.module1 || {})
+            // console.log(module1.add(1,2));
+    </script>
+</body>
+</html>

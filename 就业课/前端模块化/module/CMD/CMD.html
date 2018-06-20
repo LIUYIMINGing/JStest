@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // CMD
+        // CMD异步加载，跟AMD的主要区别在于：
+        // AMD依赖前置，提前加载依赖。而CMD就近加载，按需加载
+        // 产物seaJS ， 跟requireJs使用有些相似 
+
+        
+    </script>
+    <script src="./js/sea.js"></script>
+    <script>
+        // CMD的核心思想就是通过define来定义一个模块，然后使用require来加载一个模块
+
+        // index.html
+        seajs.use('main.js');
+
+        // main.js
+        define(function(require,exports,module){
+            var module1 = require('module1.js');
+            console.log(module1);
+        })
+
+        // module1.js
+        define(function(require,exports,module){
+            var arr = [1,2,3]
+            exports.module1 = arr;
+        })
+    </script>
+</body>
+</html>

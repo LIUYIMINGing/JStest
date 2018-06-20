@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // CommonJS的核心思想是通过require方法来同步加载所要依赖的其他模块，然后通过exports或者module.exports来导出需要暴露的接口
+        // index.js
+        var module = require('module.js');
+        module.aa('hello');
+        
+        // module.js
+        module.exports = {
+            aa: function (str) {
+                console.log(str);
+            }
+        }
+    </script>
+</body>
+</html>
