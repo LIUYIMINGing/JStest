@@ -8,16 +8,32 @@
 </head>
 <body>
     <!-- 
+        安装webpack流程
         1、下载node.js
         2、检查node和npm版本，npm是一种包管理工具
         3、全局下载webpack，利用npm的命令
         4、npm install webpack -g   (下载一个全局的webpack)
         5、在当前文件夹的控制台里，运行 npm init
         6、一路enter 下去，直到Is this OK? (yes),确认，并在本文件夹里生成一个package.json。
+        6-2、在mac里，此时要先运行sudo -s；输入开机密码后在运行下面代码，否则不能成功安装。
         7、在终端中运行  npm install webpack --save-dev
         8、如果要互相传输项目，只需要把package.json传给对方，对方运行npm install即可
         9、接着下载webpack-cli 命令行接口
-        10、在控制台运行 npm install webpack-cli -g
+        10、在控制台运行 npm install webpack-cli -g （不知道为什么添加-g不能成功下载，去掉之后能下载）
+        11、运行webpack -v;查看版本
+        12、运行webpack,此时会出错，需要在本文件夹里新建一个src文件夹，作为入口，并在里面建一个index.js文件。
+        13、此时运行成功后会在主文件夹下自动新建一个dist文件夹，作为出口。
      -->
+     <!-- 
+        四个核心模块及概念
+        1、入口entry
+        入口起点指webpack应该使用哪个模块，来作为构建其内部依赖图的开始。进入入口起点后，webpack会找出有哪些模块和库是入口起点（直接和间接）依赖的
+        2、输出output
+        告诉webpack在哪里输出它所创建的bundles，以及如何命名这些文件，默认值为./dist。整个应用程序结构，都会被编译到你指定的输出路径文件中。
+        3、loader
+        loader让webpack能够去处理那些非javascript文件（webpack自身只理解javascript）。loader可以将所有类型的文件转换为webpack能够处理的有效模块，然后你就可以利用webpack的打包能力，对它们进行处理。
+        4、插件plugins
+        插件的范围包括，从打包优化到压缩，一直到重新定义环境中的变量。插件接口功能极其强大，可以用来处理各种各样的任务。
+      -->
 </body>
 </html>
