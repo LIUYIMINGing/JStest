@@ -1,13 +1,13 @@
+@import "base.less";
+// less 可以声明变量
 @nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+// 混合
 .borderd{
     border-top: dotted 1px black;
     border-bottom: solid 2px black;
 };
-// less 可以声明变量
-@light-blue: @nice-blue + #111;
-*{
-    margin:0;
-    padding: 0;
+// 嵌套
     body{
         // background-color: pink;
         background-color: @light-blue;
@@ -16,6 +16,15 @@
             width: 200px;
             background-color: green;
             .borderd;
+            &:hover{
+                background-color: red;
+            };
+            p{
+                display: inline-block;
+                height: calc(100% + 30px);
+                // 还可以运算。
+                width: 100px;
+                background-color: purple;
+            }
         }
     }
-}
