@@ -16,7 +16,7 @@ module.exports = {
     // loader
     module: {
         rules: [
-            {test:/.css$/,use:['style-loader','css-loader']},
+            {test:/.less$/,use:['style-loader','css-loader','less-loader']},
             {test: /.jpg|.png$/,use:['url-loader?limit=10&name=/[name].[ext]']}
             // 这里test后面是用正则匹配图片格式，后面use是路径，图片大小大于10k才启用webapck，后面name是图片的name，[ext]代表图片的格式
         ]
