@@ -3,6 +3,7 @@
 //     console.log('bbb')
 // }
 // aa();
+require('./css/index.css');
 var demo = require('./demo.js');
 // demo.add(1, 2);
 demo.add(12, 2);

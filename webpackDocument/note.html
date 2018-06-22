@@ -26,6 +26,23 @@
         14、webpack -w  ;监听功能。这样就不用每次修改完就手动打包一次。
         15、用图片解析器的时候，要在终端中先 npm install url-loader --save-dev;然后再webpack
         16、要想启用url-loader必须先npm install file-loader --save-dev
+        17、webpack-dev-server,windows启用本地服务器，
+        ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress 在mac下启动代码，但是跟老师讲的不一样。
+        但是需要先安装npm install webpack-dev-server --save-dev
+        18，在package.json里的
+        "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1",
+                "start": "webpack"
+        }
+        设置start属性（运行webpack run start）
+        webpack-dev-server：开启本地服务器
+        --devtool：该选项控制是否以及如何生成源映射
+        eval-source-map 把每个module封装到eval里包裹起来执行，并且会在末尾追加注释，把注释里的sourceMap都转为了DataURL
+        --progress: 显示编译百分比过程
+        --color：提示显示高亮颜色
+        都放到同一个start里，用空格隔开
+        执行指令：npm run start
+
      -->
      <!-- 
          src 里面是开发的文件。
