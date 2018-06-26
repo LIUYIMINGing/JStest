@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <script>
+    <!-- <script>
         var num = 100;
         function fn() {
             // if语句中的 var num = 11可以拆为下面两句话
@@ -20,6 +22,81 @@
             }
         }    
         fn();
+    </script> -->
+    <script>
+        // {
+        //     let a = 10;
+        // }
+        // // let 命令
+        // // 识别块级作用域
+        // // 不存在变量提升
+        // // 暂时性死区
+        // // 不允许重复声明
+        // var b = 10;
+        // console.log(typeof(a), b);
+
+        var arr = [];
+        for (var i = 0; i < 10; i++) {
+            (function (j) {
+                arr[j] = function () {
+                    console.log(j);
+                }
+            })(i)
+        }
+        for(let i = 10; i < 20; i ++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        arr[3]();
+        arr[17]();
+        // 数组的解构赋值
+        // 有序
+        let [a, b, c] = [1, 2, 3];
+        console.log(a + '=a');
+        let [x = 10] = [2022];
+        console.log(x);
+        // 对象的解构赋值
+        // 无序
+        let{bar, foo} = {foo:234, bar:123}
+        console.log(bar,foo)
+        let{baz:foe} = {baz:123}
+        // console.log(baz);
+        console.log(foe);
+        let obj = {
+            p:[
+                'hello',
+                {y1 :123}
+            ]
+        }
+        let {p : [x1, {y1}]} = obj;
+        console.log(x1);
+        // swap
+        let a1 = 1;
+        let b1 = 2;
+        console.log(a1, b1);
+        [a,b] = [b, a]
+        console.log(a, b);
+        function methods() {
+            return {
+                add: function() {},
+                sum: function() {}
+            }
+        }
+        let {add, sum} = methods();
+        console.log(add,sum);
+    </script>
+    <script>
+        // const 命令
+        // 声明的常量（原始值）不可改变,引用值可以改变
+        // 识别块级作用域
+        // 不存在变量提升
+        // 暂时性死区
+        // 不允许重复声明
+      const max = 9999;
+      console.log(max);
+      max ++;
     </script>
 </body>
+
 </html>
