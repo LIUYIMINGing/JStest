@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的扩展</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script>
+        // 扩展运算符 ...arr
+        var arr = [];
+        var arr1 = [1,2,3,4,5];
+        var arr2 = [false,NaN]
+        arr.push(...arr1, ...arr2)
+        // arr.push(...arr1);
+        // Array.prototype.push.apply(arr,arr1)
+        // console.log(arr.concat(arr1));
+        console.log(arr);
+        var [x, ...y] = [1,2,3,4,5];
+        console.log(x,y)
+        var strArr = [...'xiaoming'];
+        console.log(strArr);
+console.log('fengexian');
+        // Array.from() 
+        // 类数组转化为数组
+        var arr3 = Array.from('string')
+        console.log(arr3);
+        var obj = {
+            '0' : 'd',
+            '1' : 'y',
+            '2' : 'z',
+            length : 3
+        }
+        console.log(obj);
+        console.log(Array.from(obj));
+        var arr4 = Array.from(obj, function (item,index) {
+            return item + index;
+        })
+        console.log(arr4);
+        var arr5 = Array.from(obj).map(((item,index) => item + index));
+        console.log(arr5);
+console.log('fengexian');
+        // 实例
+        var divs = document.getElementsByTagName('div');
+        var divTexts = Array.from(divs, item => item.innerText);
+        console.log(divTexts);
+        // 
+        function typesof() {
+            return Array.from(arguments,item => typeof item);
+        }
+        console.log(typesof('1',false,NaN));
+        // Array.of()
+        var arr6 = Array.of(1,2,3,4,5)
+        var arr9 = Array.of(6);//弥补new Array() 传入单一数字的时候返回有长度无对象的数组
+        var arr7 = new Array(1,2,3,4,5)
+        var arr8 = new Array(6);
+        console.log(arr6,arr7,arr8,arr9);
+console.log('fengexian_________________________________________________')
+        // Array.copyWithin
+        var arr10 = [1,2,3,4,5]
+        // Array.prototype.copyWithin(target, start = 0, end = this.length);
+        // console.log(arr10.copyWithin(0,3));
+        // 从第0位开始，将从第三位开始的对象，赋给从0位开始的对象
+        console.log(arr10.copyWithin(0, 3, 4));
+console.log('fengexian_________________________________________________')
+        // fill() 方法
+        var arr11 = new Array(5);
+        console.log(arr11.fill(7));
+        console.log('fengexian_________________________________________________')
+        // entries() key()  values() 方法
+        // 对数组遍历
+        var arr12 = ['3',2,3,4,5]
+        var arrKey = arr12.keys();
+        console.log(arrKey);
+        for(item of arr12.keys()) {//针对迭代器（Iterator）的循环方法--> for of
+            console.log(item);
+        }
+        for(item of arr12.values()) {
+            console.log(item);
+        }
+        for(item of arr12.entries()) {
+            console.log(item);
+        }
+        for([item,index] of arr12.entries()) {
+            console.log(item,index);
+        }
+        console.log('fengexian_________________________________________________')
+        // includes()  find()  findIndex()  方法
+        // 
+        var arr13 = [1,2,3,4,5,6]
+        var num = arr13.find(item => item > 4);//找到满足条件的第一个数，并返回
+        console.log(num);
+        var num2 = arr13.findIndex(item => item > 4);//找到满足条件的第一个数的下标，并返回
+        console.log(num2);
+        var num3 = arr13.includes(4);//找到满足条件的第一个数的下标，并返回
+        console.log(num3)
+    </script>
+</body>
+</html>

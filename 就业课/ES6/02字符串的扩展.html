@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 模板字符串 -->
+    <script>
+        var str = 'hello world';
+        var newStr = `hello world`;//模板字符串用的是esc下面的反撇号
+        console.log(str,newStr);
+
+        var str2 = 'life \n is \n shit！！！';//常规字符串换行
+        console.log(str2);
+        var newStr2 = `life
+        is
+        shit!!!`
+        console.log(newStr2);
+        // 写dom更方便了
+        var newStr3 = `
+        <div>
+            <a>life is shit!!!</a>
+        </div>
+        `;
+        document.write(newStr3);
+        var xm = {
+            age : 18,
+            height : 180,
+            name : "xiaoming" 
+        };
+        var str3 = 'name:' + xm.name  + ',' + 'age:' + xm.age + ',' + 'height:' + xm.height;
+        console.log(str3);
+        var {age, name, height} = xm;//解构赋值
+        var newStr4 = `name: ${name} age: ${age} height: ${height}`;
+        console.log(newStr4);
+
+        var x = 3,y = 5;
+        function getName () {
+            return 'xiaoming';
+        }
+        var newStr6 = `my name is ${getName()}`;
+        var newStr5 = `${x} + ${y} = ${x + y}`;
+        console.log(newStr5);
+        console.log(newStr6);
+        // 嵌套
+        var arr1 = [1,2,3,4,5];
+        var resStr = `${arr1.map(function(item,index){
+            return `${item}: ${index}`;
+        })}`
+        console.log(resStr);
+    </script>
+</body>
+</html>

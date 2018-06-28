@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象的扩展</title>
+</head>
+<body>
+    <script>
+        // 属性的简洁表示以及属性名表达式
+        var foo = '123';
+        // var obj = {foo : foo};
+        var obj = {foo};
+        console.log(foo,obj)
+        var obj1 = {
+            name : 'xiaoming',
+            age : '18',
+            getMsg () {
+                console.log(this.age,this.name);
+            }
+        }
+        obj1.getMsg();
+        var obj2 = {};
+        obj.name = 'xiaoming';
+        obj['a' + 'ge'] = 18;
+        console.log(obj2);
+        // es6简写
+        var Name = 'name',
+            Age = 'age'
+        var obj3 = {
+            [Name] : 'xm',
+            [Age] : '16'
+        }
+        console.log(obj3);
+        // 属性的可枚举性以及属性的遍历
+        // Object.getOwnPropertyDescriptor  -->可以获取该属性所描述的对象
+        var obj4 = {
+            age : 18,
+            name : 'xiaoming'
+        }
+        console.log(Object.getOwnPropertyDescriptor(obj4,'age'));
+        // Object.keys
+        // for ... in
+        // Object.is() 与 ==== 方法   增强型绝对等于
+        console.log(Object.is('foo','foo'));
+        console.log(Object.is(NaN,NaN));//也能判断 +0 与 -0；
+        console.log(NaN === NaN);
+        // assign()  将多个源对象的可枚举性赋值到目标对象上
+        var obj5 = {}
+        var obj6 = {name : 'xm'}
+        var obj7 = {age : 18}
+        var newObj7 = Object.assign(obj5,obj6,obj7)
+        console.log(newObj7);
+        // 
+        // 对象的扩展运算符
+        var {a, b, ...c} = {a : 123, b : 234, d: 123, c : 345};
+        console.log(a,b,c);
+        var obj8 = {name : 123};
+        var obj9 = {age : 18}
+        var newObj9 = {...obj8, ...obj9};
+        console.log(newObj9);
+        let merge = (target, ...sources) => Object.assign(target,...sources)
+        // Object.keys()  Object.values() Object.entries()
+        var obj10 = {
+            name : 'xm',
+            age : 18,
+            getMsg() {
+                return this.name + this.age;
+            }
+        }
+        var Okeys = Object.keys(obj10);
+        var Ovalues = Object.values(obj10);
+        var Oentries = Object.entries(obj10);
+        console.log(Okeys,Ovalues,Oentries);
+    </script>
+</body>
+</html>

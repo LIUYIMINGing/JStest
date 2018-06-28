@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数的扩展</title>
+</head>
+<body>
+    <script>
+        // function Person(name,age) {
+        //     if(typeof(age) == 'undefined') {
+        //         age = 18;
+        //     }
+        //     var age = age || 18;
+        //     console.log(name, age)
+        // }
+        // Person('xm')
+        // Person('xm',12)
+        // Person('xm',0)
+        // Person('xm',null)
+        // Person('xm',false)
+        function Person(name,age = 18) {
+            console.log(name, age)
+        }
+        Person('xm');
+        Person('xm',undefined);
+        Person('xm',12);
+        Person('xm',0);
+        Person('xm',null);
+        Person('xm',false);
+
+        // 与解构赋值配合使用
+        function fn({x,y = 5}){
+            console.log(x,y);
+        }
+        fn({});//fn({x,y = 5} = {})
+        fn({x:1})
+        fn({x : 1, y : 2});
+        // fn();
+
+console.log('fengexian');
+        function f1({x = 0, y = 0} = {}) {
+                    //{x = 0, y = 0}  解构赋值的默认值
+            console.log(x, y);
+        }
+        function f2({x, y} = {x : 0, y : 0}) {
+                    //{x, y} = {x : 0, y : 0}  解构赋值的形式，而不是值
+            console.log(x, y)
+        }
+        f1();
+        // f1此时取得是默认值
+        f2();
+        // f2 此时取得是后面赋的值
+        f1({x : 1, y : 2});
+        // f1 此时相当于{x = 0, y = 0} = {x : 1, y : 2}；在默认值的基础上重新覆盖性的赋值
+        f2({x : 1, y : 2});
+        // f2 相当于把原来赋的值，改为{x : 1, y : 2}----{x, y} = {x : 1, y : 2}
+        f1({x : 1});
+        // {x = 0, y = 0} = {x : 1}，此时y取默认值
+        f2({x : 1});
+        // {x, y} = {x : 1}，此时y无值，undefined
+console.log('fengexian');
+        function fn2 (x = 5) {
+            let x = 10;
+            // 不能重新定义已经有默认值的变量
+        }
+        // fn2()  //会报错
+
+        let x = 111;
+        function fn3(y = x) {
+            let x = 1;
+            console.log(y);//y取得是x的值，彼时的x会向上一个作用域找自己的赋值
+            console.log(x);//x此时取得是本作用域内的赋值
+        }
+        fn3();
+console.log('fengexian');
+        // 扩展运算符
+        function fn4(...arg) {
+            console.log(arg);//输出一个数组
+        }
+        function fn5(arguments) {
+            console.log(arguments);//输出第一项
+        }
+        fn4(1,2,3,4,5);
+        fn5(1,2,3,4,5);
+
+console.log('fengexian');
+        var arr = [1,2,3,4,5]
+        fn6.call(null, ...arr)
+        fn6.apply(null, [1,2,3,4,5])
+        function fn6(...args) {
+            console.log(args);
+        }
+console.log('fengexian');
+
+        // 箭头函数
+        // 表示返回
+        var f = num => num;
+        var f1 = function (num) {
+            return num;
+        }
+        // 在意思上 f = f1
+        var f2 = (num1, num2) => num1 + num2;
+        var f3 = () => ({name:123});
+        var f4 = num => {
+            console.log(this);
+            num = num + 1
+            return num * 5;
+        }
+        f4();
+        var age = 'window 18'
+        var obj = {
+            age : 18,
+            getAge : () => this.age//this指向不一样，箭头函数中没有this对象，它会去它的父级中找。
+        }
+        console.log(obj.getAge());
+        // 嵌套的箭头函数
+        function fn7(str) {
+            return function () {
+               return str.split('')
+            }
+        }
+        console.log(fn7('123')());
+        var fn8 = str => () => str.split('');
+        console.log(fn8('123')());
+    </script>
+</body>
+</html>

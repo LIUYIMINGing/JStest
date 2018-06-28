@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标签模板</title>
+</head>
+<body>
+    <!-- 标签模板
+        函数调用的特殊形式
+    -->
+    <script>
+        // alert`123456`;
+
+        // function show(name) {
+        //     console.log(name);
+        // }
+        // show`lihai`
+        var name = 'xiaoming';
+        var where = 'BJ';
+        function show () {
+            console.log(arguments);
+        }
+        show`hello ${name} , welcome to ${where}`;
+        // 执行结果类似下面的解析
+        // fn`hello ${name} , welcome to ${where}`;
+        // fn(['hello ', ' ,welcome to ', ''],name, where);
+
+        // 过滤HTML字符串
+        // 阻止恶意代码注入
+        var name = '<script>alert("123")<\/script>'
+        safeHTML`<p>${name} welcome to duyi</p>`;
+        function safeHTML(data) {
+            // ['<p>', 'welcome to duyi</p>'], name
+            var str = data[0];
+            for(let i = 1; i < arguments.length; i ++) {
+                var arg = String(arguments[i]);
+                str += arg.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/,'&gt');
+                str += data[i];
+            }
+            console.log(str);
+        }
+    </script>
+</body>
+</html>
