@@ -1,0 +1,22 @@
+{
+  "name": "qqmusic",
+  "version": "1.0.0",
+  "description": "this is a music",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "music",
+    "html5"
+  ],
+  "author": "yunshw",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
