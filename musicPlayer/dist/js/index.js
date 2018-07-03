@@ -1,0 +1,1 @@
+function index(){}function index2(){var n=0;return n++}

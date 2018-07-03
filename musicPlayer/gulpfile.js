@@ -1,7 +1,8 @@
 var gulp = require("gulp");
     htmlClean = require("gulp-htmlclean"),
     imageMin = require("gulp-imagemin"),
-    uglify = require("gulp-uglify")
+    uglify = require("gulp-uglify"),
+    stripDebug = require("gulp-strip-debug")
 var folder = {
     src : "./src/",//开发目录文件夹
     dist : "./dist/"//压缩打包后的目录文件夹
@@ -19,10 +20,11 @@ gulp.task("images",function(){
 })
 gulp.task("js",function(){
     gulp.src(folder.src + "js/*")
+        .pipe(stripDebug())
         .pipe(uglify())
         .pipe(gulp.dest(folder.dist + "js/"))
 })
 
-gulp.task("default",["html","images"],function(){
+gulp.task("default",["html","images","js"],function(){
 
 })
