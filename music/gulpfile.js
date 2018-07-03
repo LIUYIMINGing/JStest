@@ -6,11 +6,11 @@ var htmlClean = require("gulp-htmlclean");
 
 
 var folder = {
-    src : "./src/",
-    build : "./build/"
+    src : "./src/",//开发目录文件夹
+    build : "./build/"//压缩打包后的目录文件夹
 }
 
-gulp.task("images",function(){
+gulp.task("images",function(){//创建任务
     gulp.src(folder.src + "images/*")
         .pipe(newer(folder.build + "images"))
         .pipe(imagemin())//不能用，猜测是丢包
