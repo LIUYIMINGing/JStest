@@ -5,6 +5,7 @@ var controlManger;
 var index = 0;
 var songList;
 var audio = new root.audioControl();
+// console.log(root);
 function bindEvent() {
     $scope.on("play:change",function(event,index) {
         // root.render(songList[index])
@@ -20,6 +21,7 @@ function bindEvent() {
         //     index --;
         // }
         var index = controlManger.prev();
+        // console.log(controlManger);
         root.render(songList[index])
         $scope.trigger("play:change",index);
     })
@@ -47,11 +49,11 @@ function getData(url) {
         type : "GET",
         url : url,
         success : function(data){
-            root.render(data[0]);
+            root.render(data[0]);//第二步，渲染初始html
             songList = data;
-            bindEvent();
+            bindEvent();//第三步，加载所有的操作方法
             controlManger = new root.controlManger(data.length);
-            console.log(data);
+            // console.log(data);
             $scope.trigger("play:change",0)
         },
         error : function(data){
@@ -59,4 +61,4 @@ function getData(url) {
         }
     })
 }
-getData("../mock/data.json");
+getData("../mock/data.json");//整个代码运行的第一步

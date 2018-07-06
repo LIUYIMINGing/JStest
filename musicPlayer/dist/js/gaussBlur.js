@@ -109,7 +109,7 @@ zepto.min.js
         ele.css('background-image', 'url(' + imageData + ')');
     }
 
-    root.blurImg = blurImg;
+    root.blurImg = blurImg;//在这里把在本js文件里写的方法赋到root上，root其实就是window.player
 
 })(window.Zepto, window.player || (window.player = {}));
 
