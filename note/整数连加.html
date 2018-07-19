@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function add(x) {
+        var sum = x;
+        var tmp = function(y) {
+            sum = sum + y;
+        	console.log(sum);
+            return tmp;
+        };
+        console.log(tmp);
+        tmp.toString = function() {
+            return sum;
+        };
+        return tmp;
+
+
+    }
+    console.log(add(1)(2)(3)); //6
+    // console.log(add(1)(2)(3)(4)); //10
+    </script>
+    <script type="text/javascript">
+    	function add(x) {
+    		var sum = x;
+    		var tmp = function (y) {
+    			sum = sum + y;
+    			return tmp;
+    		};
+    		tmp.toString = function() {
+    			return sum;
+    		};
+    		return tmp;
+    	}
+    	function add()
+    	console.log(add(1)(2)(5));
+    </script>
+
+</body>
+
+</html>

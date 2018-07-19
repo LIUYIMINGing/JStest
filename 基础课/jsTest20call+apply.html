@@ -38,9 +38,11 @@
         this.grade = grade;
     }
     var student = new Student('sunny', 18, 139);
+    // console.log(student);
 </script>
 <script>
     // apply
+    var obj1 = {};
     function Person(name, age, sex) {
         this.name = name;
         this.age = age;
@@ -48,11 +50,16 @@
     }
     function Student(name, age, sex, tel, grade){
         // var this ={};
-        Person.apply(this,[name, age, sex]);  //apply必须传数组，数组里面填实参；
+        console.log(arguments);
+        Person.apply(this,[name, age, sex]);  //apply必须传数组，数组里面填实参；this就是this的指向，可以用其他例如obj1等等代替
+        console.log(this);
+        Person.apply(obj1,[name, age, sex]);
         this.tel = tel;
         this.grade = grade;
     }
     var student = new Student('sunny', 18, 139);
+    console.log(student);
+    console.log(obj1);
 </script>
 <!--总结-->
 <!--call和apply只有一个功能就是改变this指向，区别，传参列表不同-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数柯里化(currying)</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function addCurry(a) {
+        return function(b) {
+            return function(c) {
+                return a + b + c;
+            }
+        }
+    }
+    console.log(addCurry(1)(2)(3));
+    </script>
+    <script type="text/javascript">
+    // function add(a, b) {
+    //     return a + b;
+    // }
+    // 参数只能从左到右传递
+    // 参数只能从左到右传递
+    function createCurry(func, arrArgs) {
+        var args = arguments;
+        var funcLength = func.length;
+        var arrArgs = arrArgs || [];
+        return function() {
+            var _arrArgs = Array.prototype.slice.call(arguments);
+            var allArrArgs = arrArgs.concat(_arrArgs)
+
+            // 如果参数个数小于最初的func.length，则递归调用，继续收集参数
+            if (allArrArgs.length < funcLength) {
+                return args.callee.call(this, func, allArrArgs);
+            }
+            // 参数收集完毕，则执行func
+            return func.apply(this, allArrArgs);
+        }
+    }
+
+    var addCurry = createCurry(function(a, b, c) {
+        return a + b + c;
+    });
+
+    console.log(addCurry(1)(2)(3));
+    console.log(addCurry(1, 2, 3));
+    </script>
+</body>
+
+</html>

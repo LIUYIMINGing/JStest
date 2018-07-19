@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数合成</title>
+</head>
+
+<body>
+    <!-- <script>
+        function add4(x) {
+            return x + 4
+        }
+
+        function multiply4(x) {
+            return x * 4
+        }
+
+        function compose(f, g) {
+            return function (x) {
+                return f(g(x));
+            };
+        }
+        var calculate = compose(multiply4, add4);
+
+
+        console.log(calculate(1))
+
+    </script> -->
+    <script>
+        function compose() {
+            var args = arguments;
+            console.log(arguments);
+            var start = args.length - 1;
+            return function () {
+                var i = start;
+                var result = args[start].apply(this, arguments);
+                while (i --) {
+                    result = args[i].call(this, result)//此时用call()，调用上一层result的结果，
+                };
+                return result;
+            };
+        }
+        function addHello(str) {
+            return 'hello ' + str;
+        }
+        function toUpperCase(str) {
+            return str.toUpperCase();
+        }
+        function reverse(str) {
+            return str.split('').reverse().join('');
+        }
+
+        var composeFn = compose(reverse, toUpperCase, addHello);//这三个函数，从后往前，每个函数返回的值应用到前一个函数身上，
+                                                                //函数依次执行，执行的结果就是return出来最后的字符串
+        // 获得compose返回的一个函数
+        // console.log(composeFn);
+        console.log(composeFn('ttsy')); // YSTT OLLEH
+        // 执行compose返回的函数，这个函数的实参是‘ttsy’,所以args[start].apply(this, arguments)的执行结果是compose的自身属性值
+        // compose调用的是自己的实参，得到的结果也是自己的，下面的args[i]调用的也是自己（compose）的属性值，把这些属性值返回到自身（compose）
+    </script>
+</body>
+
+</html>
