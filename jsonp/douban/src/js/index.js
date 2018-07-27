@@ -12,19 +12,19 @@
 
 
     function ajaxData(value) {
-        // $.ajax({
-        //     type: 'GET',
-        //     url: 'https://api.douban.com/v2/music/search',
-        //     data: 'q=' + value + '&count=7',
-        //     dataType: 'jsonp',
-        //     success: addItem
-        // })
         $.ajax({
             type: 'GET',
-            url: 'http://localhost/douban/src/js/data.json',//mac上路径需要改
-            data: 'q='+value+'&count=7',//data会自动拼接到上面url后面
+            url: 'https://api.douban.com/v2/music/search',
+            data: 'q=' + value + '&count=7',
+            dataType: 'jsonp',
             success: addItem
         })
+        // $.ajax({
+        //     type: 'GET',
+        //     url: 'http://localhost/douban/src/js/data.json',//mac上路径需要改
+        //     data: 'q='+value+'&count=7',//data会自动拼接到上面url后面
+        //     success: addItem
+        // })
     }
     function addItem(data) {
         // console.log(data)
